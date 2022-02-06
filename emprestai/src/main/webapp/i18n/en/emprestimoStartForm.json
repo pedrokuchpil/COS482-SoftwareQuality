@@ -1,0 +1,24 @@
+{
+  "emprestaiApp": {
+    "emprestimoStartForm": {
+      "home": {
+        "title": "Emprestimo Start Forms",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Emprestimo Start Form",
+        "createOrEditLabel": "Create or edit a Emprestimo Start Form",
+        "notFound": "No Emprestimo Start Forms found"
+      },
+      "created": "A new Emprestimo Start Form is created with identifier {{ param }}",
+      "updated": "A Emprestimo Start Form is updated with identifier {{ param }}",
+      "deleted": "A Emprestimo Start Form is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Emprestimo Start Form {{ id }}?"
+      },
+      "detail": {
+        "title": "Emprestimo Start Form"
+      },
+      "id": "ID",
+      "date": "Date"
+    }
+  }
+}

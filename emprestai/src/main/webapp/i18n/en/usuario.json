@@ -1,0 +1,16 @@
+{
+  "emprestaiApp": {
+    "usuario": {
+      "home": {
+        "title": "Usuarios",
+        "refreshListLabel": "Refresh list",
+        "notFound": "No Usuarios found"
+      },
+      "detail": {
+        "title": "Usuario"
+      },
+      "id": "ID",
+      "username": "Username"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "fields": [
+    {
+      "fieldName": "date",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "relationships": [],
+  "entityType": "start-form",
+  "processBpmnId": "EmprestimoProcess",
+  "processEntityName": "EmprestimoProcess",
+  "domainEntityName": "Emprestimo",
+  "service": "serviceClass",
+  "dto": "mapstruct",
+  "jpaMetamodelFiltering": false,
+  "readOnly": false,
+  "pagination": "no",
+  "name": "EmprestimoStartForm",
+  "changelogDate": "20210401000002",
+  "skipFakeData": true
+}

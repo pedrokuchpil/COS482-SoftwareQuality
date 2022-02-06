@@ -26,7 +26,7 @@
     "dtoSuffix": "DTO",
     "testFrameworks": [],
     "pages": [],
-    "creationTimestamp": 1644178332165,
+    "creationTimestamp": 1644183298036,
     "serviceDiscoveryType": false,
     "reactive": false,
     "authenticationType": "jwt",
@@ -49,9 +49,10 @@
     "enableTranslation": true,
     "nativeLanguage": "en",
     "packageFolder": "com/mycompany/myapp",
-    "jwtSecretKey": "NWYxNGFjMjYyOGM0MGQwMDcwNjk3NGRmMGVlMTRkYzU0MTE4MWUzYWMyMDllYWRhNGIxMzhiOTU0NjQyNzVjODhmYmU4ZTQwNmZkMzIzZGI5YTE3MzJkMWM1OGRkMjIyMGVkZmQ2NWQ1NzRjOTc5Y2U1YzMxNzg5NjRmNzYyNTQ=",
+    "jwtSecretKey": "NDRjMjNmNTM2NTU3M2U2MzBlMWZjYjc2MzRhZjBjZmY5OGM3NDM2NTVmODA4N2I3YjRlNTE4YmZkNDQ1ZDM5ZDg5ZmRkYjBiZThjMzI3ZGM5MDAwMjdhMmQ4Y2UyNWJkNzNmNmU0NDU5NWU0ZTMzZDEwMzU5NTQxMjcwNWQ1YzQ=",
     "clientPackageManager": "npm",
     "clientThemeVariant": "",
-    "languages": ["en"]
+    "languages": ["en"],
+    "entities": ["Usuario", "Emprestimo", "Book"]
   }
 }

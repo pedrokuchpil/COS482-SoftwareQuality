@@ -1,0 +1,18 @@
+{
+  "emprestaiApp": {
+    "book": {
+      "home": {
+        "title": "Books",
+        "refreshListLabel": "Refresh list",
+        "notFound": "No Books found"
+      },
+      "detail": {
+        "title": "Book"
+      },
+      "id": "Id",
+      "title": "Title",
+      "author": "Author",
+      "owner": "Owner"
+    }
+  }
+}

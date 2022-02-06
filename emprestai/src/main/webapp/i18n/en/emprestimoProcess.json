@@ -1,0 +1,26 @@
+{
+  "emprestaiApp": {
+    "emprestimoProcess": {
+      "home": {
+        "title": "Emprestimo Processes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Emprestimo Process",
+        "createOrEditLabel": "Create or edit a Emprestimo Process",
+        "notFound": "No Emprestimo Processes found"
+      },
+      "created": "A new Emprestimo Process is created with identifier {{ param }}",
+      "updated": "A Emprestimo Process is updated with identifier {{ param }}",
+      "deleted": "A Emprestimo Process is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Emprestimo Process {{ id }}?"
+      },
+      "detail": {
+        "title": "Emprestimo Process"
+      },
+      "id": "ID",
+      "date": "Date",
+      "receiver": "Receiver",
+      "book": "Book"
+    }
+  }
+}

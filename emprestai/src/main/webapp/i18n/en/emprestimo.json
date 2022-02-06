@@ -1,0 +1,18 @@
+{
+  "emprestaiApp": {
+    "emprestimo": {
+      "home": {
+        "title": "Emprestimos",
+        "refreshListLabel": "Refresh list",
+        "notFound": "No Emprestimos found"
+      },
+      "detail": {
+        "title": "Emprestimo"
+      },
+      "id": "ID",
+      "date": "Date",
+      "receiver": "Receiver",
+      "book": "Book"
+    }
+  }
+}
