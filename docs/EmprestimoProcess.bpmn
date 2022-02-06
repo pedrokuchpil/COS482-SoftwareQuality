@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_1in8u1q" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.11.1" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.15.0">
   <bpmn:collaboration id="Collaboration_1q73uw8">
-    <bpmn:participant id="Participant_0dyehe8" name="Leitor" processRef="Process_1x2fpg7" />
+    <bpmn:participant id="EmprestimoProcess" name="Leitor" processRef="Process_1x2fpg7" />
     <bpmn:participant id="Participant_0tgxmvx" name="Dono do livro" processRef="Process_0a9f7s8" />
     <bpmn:messageFlow id="Flow_1nhu700" sourceRef="Activity_09kupb2" targetRef="Event_0413w70" />
     <bpmn:messageFlow id="Flow_00bqbqb" sourceRef="Activity_1loowfn" targetRef="Activity_05bn6zm" />
@@ -142,9 +142,24 @@
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_1q73uw8">
-      <bpmndi:BPMNShape id="Participant_0dyehe8_di" bpmnElement="Participant_0dyehe8" isHorizontal="true">
+      <bpmndi:BPMNShape id="Participant_0dyehe8_di" bpmnElement="EmprestimoProcess" isHorizontal="true">
         <dc:Bounds x="120" y="80" width="1648" height="312" />
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1pc9a4y_di" bpmnElement="Flow_1pc9a4y">
+        <di:waypoint x="1168" y="180" />
+        <di:waypoint x="1310" y="180" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1xw9x0z_di" bpmnElement="Flow_1xw9x0z">
+        <di:waypoint x="1210" y="280" />
+        <di:waypoint x="1260" y="280" />
+        <di:waypoint x="1260" y="180" />
+        <di:waypoint x="1310" y="180" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0vu31i2_di" bpmnElement="Flow_0vu31i2">
+        <di:waypoint x="986" y="205" />
+        <di:waypoint x="986" y="280" />
+        <di:waypoint x="1032" y="280" />
+      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1u5qn96_di" bpmnElement="Flow_1u5qn96">
         <di:waypoint x="940" y="180" />
         <di:waypoint x="961" y="180" />
@@ -194,21 +209,6 @@
       <bpmndi:BPMNEdge id="Flow_0e4pjva_di" bpmnElement="Flow_0e4pjva">
         <di:waypoint x="206" y="180" />
         <di:waypoint x="241" y="180" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_0vu31i2_di" bpmnElement="Flow_0vu31i2">
-        <di:waypoint x="986" y="205" />
-        <di:waypoint x="986" y="280" />
-        <di:waypoint x="1032" y="280" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_1xw9x0z_di" bpmnElement="Flow_1xw9x0z">
-        <di:waypoint x="1210" y="280" />
-        <di:waypoint x="1260" y="280" />
-        <di:waypoint x="1260" y="180" />
-        <di:waypoint x="1310" y="180" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_1pc9a4y_di" bpmnElement="Flow_1pc9a4y">
-        <di:waypoint x="1168" y="180" />
-        <di:waypoint x="1310" y="180" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
         <dc:Bounds x="170" y="162" width="36" height="36" />
