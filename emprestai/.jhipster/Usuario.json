@@ -1,0 +1,18 @@
+{
+    "fields": [
+      {
+        "fieldName": "username",
+        "fieldType": "String"
+      }
+    ],
+    "relationships": [],
+    "entityType": "domain",
+    "service": "serviceClass",
+    "dto": "mapstruct",
+    "jpaMetamodelFiltering": false,
+    "readOnly": true,
+    "pagination": "no",
+    "name": "User",
+    "changelogDate": "20210401000001",
+    "skipFakeData": true
+  }
