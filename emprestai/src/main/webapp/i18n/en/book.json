@@ -9,7 +9,7 @@
       "detail": {
         "title": "Book"
       },
-      "id": "Id",
+      "id": "ID",
       "title": "Title",
       "author": "Author",
       "owner": "Owner"

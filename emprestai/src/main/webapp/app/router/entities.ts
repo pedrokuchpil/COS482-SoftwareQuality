@@ -15,11 +15,15 @@ const Book = () => import('@/entities/book/book.vue');
 // prettier-ignore
 const BookDetails = () => import('@/entities/book/book-details.vue');
 // prettier-ignore
-const EmprestimoProcessDetails = () => import('@/entities/emprestimo-process/emprestimo-process-details.vue');
+const ReceiverStartFormInit = () => import('@/entities/receiver-process/receiver-start-form-init.vue');
 // prettier-ignore
-const EmprestimoProcessList = () => import('@/entities/emprestimo-process/emprestimo-process-list.vue');
+const ReceiverProcessDetails = () => import('@/entities/receiver-process/receiver-process-details.vue');
 // prettier-ignore
-const EmprestimoStartFormInit = () => import('@/entities/emprestimo-process/emprestimo-start-form-init.vue');
+const ReceiverProcessList = () => import('@/entities/receiver-process/receiver-process-list.vue');
+// prettier-ignore
+const ReceiverProcess_SelecionarLivroDetails = () => import('@/entities/receiver-process/selecionar-livro/selecionar-livro-details.vue');
+// prettier-ignore
+const ReceiverProcess_SelecionarLivroExecute = () => import('@/entities/receiver-process/selecionar-livro/selecionar-livro-execute.vue');
 // jhipster-needle-add-entity-to-router-import - JHipster will import entities to the router here
 
 export default [
@@ -60,21 +64,33 @@ export default [
     meta: { authorities: [Authority.USER] },
   },
   {
-    path: '/process-definition/EmprestimoProcess/instance/:processInstanceId/view',
-    name: 'EmprestimoProcessView',
-    component: EmprestimoProcessDetails,
+    path: '/process-definition/ReceiverProcess/init',
+    name: 'ReceiverStartFormInit',
+    component: ReceiverStartFormInit,
     meta: { authorities: [Authority.USER] },
   },
   {
-    path: '/process-definition/EmprestimoProcess/instances',
-    name: 'EmprestimoProcessList',
-    component: EmprestimoProcessList,
+    path: '/process-definition/ReceiverProcess/instance/:processInstanceId/view',
+    name: 'ReceiverProcessView',
+    component: ReceiverProcessDetails,
     meta: { authorities: [Authority.USER] },
   },
   {
-    path: '/process-definition/EmprestimoProcess/init',
-    name: 'EmprestimoStartFormInit',
-    component: EmprestimoStartFormInit,
+    path: '/process-definition/ReceiverProcess/instances',
+    name: 'ReceiverProcessList',
+    component: ReceiverProcessList,
+    meta: { authorities: [Authority.USER] },
+  },
+  {
+    path: '/process-definition/ReceiverProcess/task/SelecionarLivro/:taskInstanceId/view',
+    name: 'ReceiverProcess_SelecionarLivroDetails',
+    component: ReceiverProcess_SelecionarLivroDetails,
+    meta: { authorities: [Authority.USER] },
+  },
+  {
+    path: '/process-definition/ReceiverProcess/task/SelecionarLivro/:taskInstanceId/execute',
+    name: 'ReceiverProcess_SelecionarLivroExecute',
+    component: ReceiverProcess_SelecionarLivroExecute,
     meta: { authorities: [Authority.USER] },
   },
   // jhipster-needle-add-entity-to-router - JHipster will add entities to the router here

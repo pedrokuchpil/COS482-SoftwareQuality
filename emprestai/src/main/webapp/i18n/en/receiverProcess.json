@@ -1,0 +1,26 @@
+{
+  "emprestaiApp": {
+    "receiverProcess": {
+      "home": {
+        "title": "Receiver Processes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Receiver Process",
+        "createOrEditLabel": "Create or edit a Receiver Process",
+        "notFound": "No Receiver Processes found"
+      },
+      "created": "A new Receiver Process is created with identifier {{ param }}",
+      "updated": "A Receiver Process is updated with identifier {{ param }}",
+      "deleted": "A Receiver Process is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Receiver Process {{ id }}?"
+      },
+      "detail": {
+        "title": "Receiver Process"
+      },
+      "id": "ID",
+      "date": "Date",
+      "username": "Username",
+      "title": "Title"
+    }
+  }
+}

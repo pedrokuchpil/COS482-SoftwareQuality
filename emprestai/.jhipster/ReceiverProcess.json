@@ -3,19 +3,26 @@
     {
       "fieldName": "date",
       "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "username",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "title",
+      "fieldType": "String"
     }
   ],
   "relationships": [],
-  "entityType": "start-form",
-  "processBpmnId": "EmprestimoProcess",
-  "processEntityName": "EmprestimoProcess",
+  "entityType": "process-binding",
+  "processBpmnId": "ReceiverProcess",
   "domainEntityName": "Emprestimo",
   "service": "serviceClass",
   "dto": "mapstruct",
   "jpaMetamodelFiltering": false,
   "readOnly": false,
   "pagination": "no",
-  "name": "EmprestimoStartForm",
+  "name": "ReceiverProcess",
   "changelogDate": "20210401000002",
   "skipFakeData": true
 }

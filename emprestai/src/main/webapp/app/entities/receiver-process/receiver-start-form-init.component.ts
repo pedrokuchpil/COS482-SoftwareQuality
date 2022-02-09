@@ -1,16 +1,17 @@
 import { Component, Vue, Inject } from 'vue-property-decorator';
 
-import { IEmprestimoProcess, EmprestimoProcess } from '@/shared/model/emprestimo-process.model';
+import { IReceiverProcess, ReceiverProcess } from '@/shared/model/receiver-process.model';
 
 import { ProcessInstance, ProcessDefinitionService } from 'akip-vue-community';
 
 import { Emprestimo } from '@/shared/model/emprestimo.model';
-import EmprestimoProcessService from './emprestimo-process.service';
+import ReceiverProcessService from './receiver-process.service';
 
 const validations: any = {
-  emprestimoProcess: {
+  receiverProcess: {
     emprestimo: {
       date: {},
+      username: {},
     },
   },
 };
@@ -18,20 +19,20 @@ const validations: any = {
 @Component({
   validations,
 })
-export default class EmprestimoStartFormInitComponent extends Vue {
-  @Inject('emprestimoProcessService') private emprestimoProcessService: () => EmprestimoProcessService;
+export default class ReceiverStartFormInitComponent extends Vue {
+  @Inject('receiverProcessService') private receiverProcessService: () => ReceiverProcessService;
 
   private processDefinitionService: ProcessDefinitionService = new ProcessDefinitionService();
 
-  public bpmnProcessDefinitionId: string = 'EmprestimoProcess';
-  public emprestimoProcess: IEmprestimoProcess = new EmprestimoProcess();
+  public bpmnProcessDefinitionId: string = 'ReceiverProcess';
+  public receiverProcess: IReceiverProcess = new ReceiverProcess();
 
   public isSaving = false;
   public currentLanguage = '';
 
   beforeRouteEnter(to, from, next) {
     next(vm => {
-      vm.initEmprestimoStartForm();
+      vm.initReceiverStartForm();
       vm.initRelationships();
     });
   }
@@ -49,12 +50,12 @@ export default class EmprestimoStartFormInitComponent extends Vue {
   public save(): void {
     this.isSaving = true;
 
-    this.emprestimoProcessService()
-      .create(this.emprestimoProcess)
+    this.receiverProcessService()
+      .create(this.receiverProcess)
       .then(param => {
         this.isSaving = false;
         this.$router.go(-1);
-        const message = this.$t('emprestaiApp.emprestimoStartForm.created', { param: param.id });
+        const message = this.$t('emprestaiApp.receiverStartForm.created', { param: param.id });
         this.$root.$bvToast.toast(message.toString(), {
           toaster: 'b-toaster-top-center',
           title: 'Success',
@@ -65,8 +66,8 @@ export default class EmprestimoStartFormInitComponent extends Vue {
       });
   }
 
-  public initEmprestimoStartForm(): void {
-    this.emprestimoProcess.emprestimo = new Emprestimo();
+  public initReceiverStartForm(): void {
+    this.receiverProcess.emprestimo = new Emprestimo();
   }
 
   public previousState(): void {
@@ -75,8 +76,8 @@ export default class EmprestimoStartFormInitComponent extends Vue {
 
   public initRelationships(): void {
     this.processDefinitionService.find(this.bpmnProcessDefinitionId).then(res => {
-      this.emprestimoProcess.processInstance = new ProcessInstance();
-      this.emprestimoProcess.processInstance.processDefinition = res;
+      this.receiverProcess.processInstance = new ProcessInstance();
+      this.receiverProcess.processInstance.processDefinition = res;
     });
   }
 }

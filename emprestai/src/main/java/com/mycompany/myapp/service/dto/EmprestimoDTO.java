@@ -13,6 +13,10 @@ public class EmprestimoDTO implements Serializable {
 
     private LocalDate date;
 
+    private String username;
+
+    private String title;
+
     private UsuarioDTO receiver;
 
     private BookDTO book;
@@ -31,6 +35,22 @@ public class EmprestimoDTO implements Serializable {
 
     public void setDate(LocalDate date) {
         this.date = date;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public UsuarioDTO getReceiver() {
@@ -76,6 +96,8 @@ public class EmprestimoDTO implements Serializable {
         return "EmprestimoDTO{" +
             "id=" + getId() +
             ", date='" + getDate() + "'" +
+            ", username='" + getUsername() + "'" +
+            ", title='" + getTitle() + "'" +
             ", receiver=" + getReceiver() +
             ", book=" + getBook() +
             "}";

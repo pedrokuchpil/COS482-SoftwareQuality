@@ -13,6 +13,18 @@
             <span>{{ emprestimo.date }}</span>
           </dd>
           <dt>
+            <span v-text="$t('emprestaiApp.emprestimo.username')">Username</span>
+          </dt>
+          <dd>
+            <span>{{ emprestimo.username }}</span>
+          </dd>
+          <dt>
+            <span v-text="$t('emprestaiApp.emprestimo.title')">Title</span>
+          </dt>
+          <dd>
+            <span>{{ emprestimo.title }}</span>
+          </dd>
+          <dt>
             <span v-text="$t('emprestaiApp.emprestimo.receiver')">Receiver</span>
           </dt>
           <dd>

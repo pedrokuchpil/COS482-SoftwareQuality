@@ -11,6 +11,8 @@
       },
       "id": "ID",
       "date": "Date",
+      "username": "Username",
+      "title": "Title",
       "receiver": "Receiver",
       "book": "Book"
     }

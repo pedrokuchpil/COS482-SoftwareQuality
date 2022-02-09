@@ -18,12 +18,12 @@
     <include file="config/liquibase/changelog/20210401000001_added_entity_Usuario.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20210401000001_added_entity_Emprestimo.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20210401000001_added_entity_Book.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20210401000002_added_entity_EmprestimoProcess.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20210401000002_added_entity_EmprestimoStartForm.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210401000002_added_entity_ReceiverStartForm.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210401000002_added_entity_ReceiverProcess.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210401000004_added_entity_SelecionarLivro.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="config/liquibase/changelog/20210401000001_added_entity_constraints_Emprestimo.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20210401000001_added_entity_constraints_Book.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20210401000002_added_entity_constraints_EmprestimoProcess.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>

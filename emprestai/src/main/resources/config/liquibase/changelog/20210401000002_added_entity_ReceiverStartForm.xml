@@ -3,21 +3,21 @@
     xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
     xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.2.xsd
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
                         http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
     <!--
-        Added the entity EmprestimoProcess.
+        Added the entity ReceiverStartForm.
     -->
-    <changeSet id="20210401000002" author="jhipster">
-        <createTable tableName="emprestimo_process">
+    <changeSet id="20210401000002-1" author="jhipster">
+        <createTable tableName="receiver_start_form">
             <column name="id" type="bigint">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="process_instance_id" type="bigint">
+            <column name="date" type="date">
                 <constraints nullable="true" />
             </column>
-            <column name="emprestimo_id" type="bigint">
+            <column name="username" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
@@ -25,5 +25,4 @@
     </changeSet>
 
     <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here -->
-
 </databaseChangeLog>

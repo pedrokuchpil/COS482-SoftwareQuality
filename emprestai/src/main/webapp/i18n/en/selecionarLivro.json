@@ -1,0 +1,24 @@
+{
+  "emprestaiApp": {
+    "selecionarLivro": {
+      "home": {
+        "title": "Selecionar Livros",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Selecionar Livro",
+        "createOrEditLabel": "Create or edit a Selecionar Livro",
+        "notFound": "No Selecionar Livros found"
+      },
+      "created": "A new Selecionar Livro is created with identifier {{ param }}",
+      "updated": "A Selecionar Livro is updated with identifier {{ param }}",
+      "deleted": "A Selecionar Livro is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Selecionar Livro {{ id }}?"
+      },
+      "detail": {
+        "title": "Selecionar Livro"
+      },
+      "id": "ID",
+      "title": "Title"
+    }
+  }
+}

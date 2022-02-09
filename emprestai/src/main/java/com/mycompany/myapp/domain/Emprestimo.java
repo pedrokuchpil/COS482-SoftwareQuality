@@ -25,6 +25,12 @@ public class Emprestimo implements Serializable {
     @Column(name = "date")
     private LocalDate date;
 
+    @Column(name = "username")
+    private String username;
+
+    @Column(name = "title")
+    private String title;
+
     @ManyToOne
     private Usuario receiver;
 
@@ -57,6 +63,32 @@ public class Emprestimo implements Serializable {
 
     public void setDate(LocalDate date) {
         this.date = date;
+    }
+
+    public String getUsername() {
+        return this.username;
+    }
+
+    public Emprestimo username(String username) {
+        this.username = username;
+        return this;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getTitle() {
+        return this.title;
+    }
+
+    public Emprestimo title(String title) {
+        this.title = title;
+        return this;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public Usuario getReceiver() {
@@ -110,6 +142,8 @@ public class Emprestimo implements Serializable {
         return "Emprestimo{" +
             "id=" + getId() +
             ", date='" + getDate() + "'" +
+            ", username='" + getUsername() + "'" +
+            ", title='" + getTitle() + "'" +
             "}";
     }
 }

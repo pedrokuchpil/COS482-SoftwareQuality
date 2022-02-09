@@ -8,12 +8,12 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 /**
- * A EmprestimoProcess.
+ * A ReceiverProcess.
  */
 @Entity
-@Table(name = "emprestimo_process")
+@Table(name = "receiver_process")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-public class EmprestimoProcess implements Serializable {
+public class ReceiverProcess implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -38,7 +38,7 @@ public class EmprestimoProcess implements Serializable {
         this.id = id;
     }
 
-    public EmprestimoProcess id(Long id) {
+    public ReceiverProcess id(Long id) {
         this.id = id;
         return this;
     }
@@ -51,7 +51,7 @@ public class EmprestimoProcess implements Serializable {
         this.processInstance = processInstance;
     }
 
-    public EmprestimoProcess processInstance(ProcessInstance processInstance) {
+    public ReceiverProcess processInstance(ProcessInstance processInstance) {
         this.setProcessInstance(processInstance);
         return this;
     }
@@ -64,7 +64,7 @@ public class EmprestimoProcess implements Serializable {
         this.emprestimo = emprestimo;
     }
 
-    public EmprestimoProcess Emprestimo(Emprestimo emprestimo) {
+    public ReceiverProcess Emprestimo(Emprestimo emprestimo) {
         this.setEmprestimo(emprestimo);
         return this;
     }
@@ -76,10 +76,10 @@ public class EmprestimoProcess implements Serializable {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof EmprestimoProcess)) {
+        if (!(o instanceof ReceiverProcess)) {
             return false;
         }
-        return id != null && id.equals(((EmprestimoProcess) o).id);
+        return id != null && id.equals(((ReceiverProcess) o).id);
     }
 
     @Override
@@ -91,7 +91,7 @@ public class EmprestimoProcess implements Serializable {
     // prettier-ignore
     @Override
     public String toString() {
-        return "EmprestimoProcess{" +
+        return "ReceiverProcess{" +
             "id=" + getId() +
             "}";
     }

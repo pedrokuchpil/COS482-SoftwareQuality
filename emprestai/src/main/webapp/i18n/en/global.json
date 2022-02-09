@@ -15,8 +15,9 @@
         "usuario": "Usuario",
         "emprestimo": "Emprestimo",
         "book": "Book",
-        "emprestimoProcess": "Emprestimo Process",
-        "emprestimoStartForm": "Emprestimo Start Form",
+        "receiverStartForm": "Receiver Start Form",
+        "receiverProcess": "Receiver Process",
+        "selecionarLivro": "Selecionar Livro",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

@@ -33,7 +33,7 @@ describe('Service Tests', () => {
     beforeEach(() => {
       service = new EmprestimoService();
       currentDate = new Date();
-      elemDefault = new Emprestimo(0, currentDate);
+      elemDefault = new Emprestimo(0, currentDate, 'AAAAAAA', 'AAAAAAA');
     });
 
     describe('Service methods', () => {
@@ -65,6 +65,8 @@ describe('Service Tests', () => {
         const returnedFromService = Object.assign(
           {
             date: dayjs(currentDate).format(DATE_FORMAT),
+            username: 'BBBBBB',
+            title: 'BBBBBB',
           },
           elemDefault
         );

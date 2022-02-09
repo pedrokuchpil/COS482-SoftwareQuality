@@ -1,19 +1,19 @@
 import { Component, Vue, Inject } from 'vue-property-decorator';
-import { IEmprestimoProcess } from '@/shared/model/emprestimo-process.model';
+import { IReceiverProcess } from '@/shared/model/receiver-process.model';
 
 import { ProcessDefinition, ProcessDefinitionService } from 'akip-vue-community';
 
-import EmprestimoProcessService from './emprestimo-process.service';
+import ReceiverProcessService from './receiver-process.service';
 
 @Component
-export default class EmprestimoProcessListComponent extends Vue {
-  @Inject('emprestimoProcessService') private emprestimoProcessService: () => EmprestimoProcessService;
+export default class ReceiverProcessListComponent extends Vue {
+  @Inject('receiverProcessService') private receiverProcessService: () => ReceiverProcessService;
 
   private processDefinitionService: ProcessDefinitionService = new ProcessDefinitionService();
 
-  public bpmnProcessDefinitionId: string = 'EmprestimoProcess';
+  public bpmnProcessDefinitionId: string = 'ReceiverProcess';
   public processDefinition: ProcessDefinition = new ProcessDefinition();
-  public emprestimoProcessList: IEmprestimoProcess[] = [];
+  public receiverProcessList: IReceiverProcess[] = [];
 
   public isFetchingProcessDefinition = false;
   public isFetchingProcessInstances = false;
@@ -42,11 +42,11 @@ export default class EmprestimoProcessListComponent extends Vue {
 
   public retrieveProcessInstances(): void {
     this.isFetchingProcessInstances = true;
-    this.emprestimoProcessService()
+    this.receiverProcessService()
       .retrieve()
       .then(
         res => {
-          this.emprestimoProcessList = res.data;
+          this.receiverProcessList = res.data;
           this.isFetchingProcessInstances = false;
         },
         err => {

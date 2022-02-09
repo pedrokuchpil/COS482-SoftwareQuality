@@ -1,12 +1,12 @@
 import axios from 'axios';
 
-import { IEmprestimoProcess } from '@/shared/model/emprestimo-process.model';
+import { IReceiverProcess } from '@/shared/model/receiver-process.model';
 
-const baseApiUrl = 'api/emprestimo-processes';
+const baseApiUrl = 'api/receiver-processes';
 
-export default class EmprestimoProcessService {
-  public find(id: number): Promise<IEmprestimoProcess> {
-    return new Promise<IEmprestimoProcess>((resolve, reject) => {
+export default class ReceiverProcessService {
+  public find(id: number): Promise<IReceiverProcess> {
+    return new Promise<IReceiverProcess>((resolve, reject) => {
       axios
         .get(`${baseApiUrl}/${id}`)
         .then(res => {
@@ -31,8 +31,8 @@ export default class EmprestimoProcessService {
     });
   }
 
-  public create(entity: IEmprestimoProcess): Promise<IEmprestimoProcess> {
-    return new Promise<IEmprestimoProcess>((resolve, reject) => {
+  public create(entity: IReceiverProcess): Promise<IReceiverProcess> {
+    return new Promise<IReceiverProcess>((resolve, reject) => {
       axios
         .post(`${baseApiUrl}`, entity)
         .then(res => {

@@ -3,6 +3,14 @@
     {
       "fieldName": "date",
       "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "username",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "title",
+      "fieldType": "String"
     }
   ],
   "relationships": [

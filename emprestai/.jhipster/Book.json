@@ -1,10 +1,6 @@
 {
   "fields": [
     {
-      "fieldName": "id",
-      "fieldType": "Long"
-    },
-    {
       "fieldName": "title",
       "fieldType": "String"
     },

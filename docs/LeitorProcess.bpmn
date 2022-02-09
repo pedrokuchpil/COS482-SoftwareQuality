@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_1qm9wwh" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.12.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.15.0">
+  <bpmn:process id="ReceiverProcess" name="Receiver Process" isExecutable="true">
+    <bpmn:startEvent id="Event_1lvv54y">
+      <bpmn:outgoing>Flow_12wvhaa</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:userTask id="SolicitarLivro" name="Solicitar Livro">
+      <bpmn:incoming>Flow_12wvhaa</bpmn:incoming>
+      <bpmn:outgoing>Flow_0e9nmce</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Activity_0loc95o" name="Pegar Livro">
+      <bpmn:incoming>Flow_0e9nmce</bpmn:incoming>
+      <bpmn:outgoing>Flow_0rdgbih</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:inclusiveGateway id="Gateway_0nrm108">
+      <bpmn:incoming>Flow_0rdgbih</bpmn:incoming>
+      <bpmn:outgoing>Flow_0ili8b9</bpmn:outgoing>
+      <bpmn:outgoing>Flow_1jrglxq</bpmn:outgoing>
+    </bpmn:inclusiveGateway>
+    <bpmn:userTask id="Activity_04mxcje" name="Ler Livro">
+      <bpmn:incoming>Flow_1jrglxq</bpmn:incoming>
+      <bpmn:outgoing>Flow_0up9rb8</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:intermediateCatchEvent id="Event_044bkis">
+      <bpmn:incoming>Flow_0ili8b9</bpmn:incoming>
+      <bpmn:outgoing>Flow_14nm3wo</bpmn:outgoing>
+      <bpmn:timerEventDefinition id="TimerEventDefinition_1j5jwzz">
+        <bpmn:timeDuration xsi:type="bpmn:tFormalExpression">PT30S</bpmn:timeDuration>
+      </bpmn:timerEventDefinition>
+    </bpmn:intermediateCatchEvent>
+    <bpmn:exclusiveGateway id="Gateway_0v3chem">
+      <bpmn:incoming>Flow_0up9rb8</bpmn:incoming>
+      <bpmn:incoming>Flow_14nm3wo</bpmn:incoming>
+      <bpmn:outgoing>Flow_0hln8il</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:userTask id="Activity_079fqk6" name="Devolver Livro">
+      <bpmn:incoming>Flow_0hln8il</bpmn:incoming>
+      <bpmn:outgoing>Flow_052we11</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:endEvent id="Event_0l39u7i">
+      <bpmn:incoming>Flow_052we11</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_12wvhaa" sourceRef="Event_1lvv54y" targetRef="SolicitarLivro" />
+    <bpmn:sequenceFlow id="Flow_0e9nmce" sourceRef="SolicitarLivro" targetRef="Activity_0loc95o" />
+    <bpmn:sequenceFlow id="Flow_0rdgbih" sourceRef="Activity_0loc95o" targetRef="Gateway_0nrm108" />
+    <bpmn:sequenceFlow id="Flow_0ili8b9" sourceRef="Gateway_0nrm108" targetRef="Event_044bkis" />
+    <bpmn:sequenceFlow id="Flow_1jrglxq" sourceRef="Gateway_0nrm108" targetRef="Activity_04mxcje" />
+    <bpmn:sequenceFlow id="Flow_0up9rb8" sourceRef="Activity_04mxcje" targetRef="Gateway_0v3chem" />
+    <bpmn:sequenceFlow id="Flow_14nm3wo" sourceRef="Event_044bkis" targetRef="Gateway_0v3chem" />
+    <bpmn:sequenceFlow id="Flow_0hln8il" sourceRef="Gateway_0v3chem" targetRef="Activity_079fqk6" />
+    <bpmn:sequenceFlow id="Flow_052we11" sourceRef="Activity_079fqk6" targetRef="Event_0l39u7i" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="ReceiverProcess">
+      <bpmndi:BPMNEdge id="Flow_12wvhaa_di" bpmnElement="Flow_12wvhaa">
+        <di:waypoint x="188" y="120" />
+        <di:waypoint x="243" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0e9nmce_di" bpmnElement="Flow_0e9nmce">
+        <di:waypoint x="343" y="120" />
+        <di:waypoint x="383" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0rdgbih_di" bpmnElement="Flow_0rdgbih">
+        <di:waypoint x="483" y="120" />
+        <di:waypoint x="528" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0ili8b9_di" bpmnElement="Flow_0ili8b9">
+        <di:waypoint x="553" y="145" />
+        <di:waypoint x="553" y="213" />
+        <di:waypoint x="695" y="213" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1jrglxq_di" bpmnElement="Flow_1jrglxq">
+        <di:waypoint x="578" y="120" />
+        <di:waypoint x="663" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0up9rb8_di" bpmnElement="Flow_0up9rb8">
+        <di:waypoint x="763" y="120" />
+        <di:waypoint x="828" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_14nm3wo_di" bpmnElement="Flow_14nm3wo">
+        <di:waypoint x="731" y="213" />
+        <di:waypoint x="853" y="213" />
+        <di:waypoint x="853" y="145" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0hln8il_di" bpmnElement="Flow_0hln8il">
+        <di:waypoint x="878" y="120" />
+        <di:waypoint x="943" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_052we11_di" bpmnElement="Flow_052we11">
+        <di:waypoint x="1043" y="120" />
+        <di:waypoint x="1135" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Event_1lvv54y_di" bpmnElement="Event_1lvv54y">
+        <dc:Bounds x="152" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1fd7o1l_di" bpmnElement="SolicitarLivro">
+        <dc:Bounds x="243" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0loc95o_di" bpmnElement="Activity_0loc95o">
+        <dc:Bounds x="383" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_0nrm108_di" bpmnElement="Gateway_0nrm108">
+        <dc:Bounds x="528" y="95" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_04mxcje_di" bpmnElement="Activity_04mxcje">
+        <dc:Bounds x="663" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_044bkis_di" bpmnElement="Event_044bkis">
+        <dc:Bounds x="695" y="195" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_0v3chem_di" bpmnElement="Gateway_0v3chem" isMarkerVisible="true">
+        <dc:Bounds x="828" y="95" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_079fqk6_di" bpmnElement="Activity_079fqk6">
+        <dc:Bounds x="943" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0l39u7i_di" bpmnElement="Event_0l39u7i">
+        <dc:Bounds x="1135" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

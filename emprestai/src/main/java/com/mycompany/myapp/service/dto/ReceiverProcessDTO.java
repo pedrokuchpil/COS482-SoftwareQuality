@@ -5,9 +5,9 @@ import java.util.Objects;
 import org.akip.service.dto.ProcessInstanceDTO;
 
 /**
- * A DTO for the {@link com.mycompany.myapp.domain.EmprestimoProcess} entity.
+ * A DTO for the {@link com.mycompany.myapp.domain.ReceiverProcess} entity.
  */
-public class EmprestimoProcessDTO implements Serializable {
+public class ReceiverProcessDTO implements Serializable {
 
     private Long id;
 
@@ -44,15 +44,15 @@ public class EmprestimoProcessDTO implements Serializable {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof EmprestimoProcessDTO)) {
+        if (!(o instanceof ReceiverProcessDTO)) {
             return false;
         }
 
-        EmprestimoProcessDTO emprestimoProcessDTO = (EmprestimoProcessDTO) o;
+        ReceiverProcessDTO receiverProcessDTO = (ReceiverProcessDTO) o;
         if (this.id == null) {
             return false;
         }
-        return Objects.equals(this.id, emprestimoProcessDTO.id);
+        return Objects.equals(this.id, receiverProcessDTO.id);
     }
 
     @Override
@@ -63,7 +63,7 @@ public class EmprestimoProcessDTO implements Serializable {
     // prettier-ignore
     @Override
     public String toString() {
-        return "EmprestimoProcessDTO{" +
+        return "ReceiverProcessDTO{" +
             "id=" + getId() +
             ", processInstance=" + getProcessInstance() +
             ", emprestimo=" + getEmprestimo() +
