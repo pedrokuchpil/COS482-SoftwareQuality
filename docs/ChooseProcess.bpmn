@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_1hjj36j" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.12.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.15.0">
   <bpmn:message id="Message_0ulfm3x" name="Message_04rjhl9" />
-  <bpmn:process id="ChooseProcess" name="Choose Process" isExecutable="true">
+  <bpmn:process id="ChooseProcess" name="Choose Process" isExecutable="true" camunda:isStartableInTasklist="false">
     <bpmn:intermediateThrowEvent id="Event_0n4kwjf">
       <bpmn:incoming>Flow_1lu2e76</bpmn:incoming>
       <bpmn:messageEventDefinition id="MessageEventDefinition_0b6wx2r" messageRef="Message_13ipk4a" camunda:delegateExpression="${nextProcess}" />

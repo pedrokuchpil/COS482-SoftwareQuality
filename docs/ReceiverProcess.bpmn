@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_1iitn28" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.12.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.15.0">
-  <bpmn:process id="ReceiverProcess" name="Receiver Process" isExecutable="true">
+  <bpmn:process id="ReceiverProcess" name="Receiver Process" isExecutable="true" camunda:isStartableInTasklist="false">
     <bpmn:startEvent id="Event_0t6mzdd">
       <bpmn:outgoing>Flow_0oxyjvz</bpmn:outgoing>
       <bpmn:messageEventDefinition id="MessageEventDefinition_1v8xomf" messageRef="Message_19ix3h2" />
