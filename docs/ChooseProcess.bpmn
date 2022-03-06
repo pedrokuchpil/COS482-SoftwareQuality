@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_1hjj36j" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.12.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.15.0">
+  <bpmn:message id="Message_0ulfm3x" name="Message_04rjhl9" />
+  <bpmn:process id="ChooseProcess" name="Choose Process" isExecutable="true">
+    <bpmn:intermediateThrowEvent id="Event_0n4kwjf">
+      <bpmn:incoming>Flow_1lu2e76</bpmn:incoming>
+      <bpmn:messageEventDefinition id="MessageEventDefinition_0b6wx2r" messageRef="Message_13ipk4a" camunda:delegateExpression="${nextProcess}" />
+    </bpmn:intermediateThrowEvent>
+    <bpmn:userTask id="SelecionarLivro" name="Selecionar Livro">
+      <bpmn:documentation># Selecionar Livro
+
+Escolha um livro para pegar emprestado!</bpmn:documentation>
+      <bpmn:incoming>Flow_12wvhaa</bpmn:incoming>
+      <bpmn:outgoing>Flow_1lu2e76</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:startEvent id="Event_1lvv54y">
+      <bpmn:outgoing>Flow_12wvhaa</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_1lu2e76" sourceRef="SelecionarLivro" targetRef="Event_0n4kwjf" />
+    <bpmn:sequenceFlow id="Flow_12wvhaa" sourceRef="Event_1lvv54y" targetRef="SelecionarLivro" />
+  </bpmn:process>
+  <bpmn:message id="Message_13ipk4a" name="Message_04rjhl9" />
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="ChooseProcess">
+      <bpmndi:BPMNEdge id="Flow_1lu2e76_di" bpmnElement="Flow_1lu2e76">
+        <di:waypoint x="320" y="120" />
+        <di:waypoint x="372" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_12wvhaa_di" bpmnElement="Flow_12wvhaa">
+        <di:waypoint x="186" y="120" />
+        <di:waypoint x="220" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Event_0n4kwjf_di" bpmnElement="Event_0n4kwjf">
+        <dc:Bounds x="372" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="SelecionarLivro_di" bpmnElement="SelecionarLivro">
+        <dc:Bounds x="220" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1lvv54y_di" bpmnElement="Event_1lvv54y">
+        <dc:Bounds x="150" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

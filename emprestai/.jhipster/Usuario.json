@@ -10,9 +10,9 @@
   "service": "serviceClass",
   "dto": "mapstruct",
   "jpaMetamodelFiltering": false,
-  "readOnly": true,
+  "readOnly": false,
   "pagination": "no",
   "name": "Usuario",
-  "changelogDate": "20210401000001",
+  "changelogDate": "20220401000001",
   "skipFakeData": true
 }

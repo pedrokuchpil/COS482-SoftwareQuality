@@ -1,0 +1,26 @@
+{
+  "emprestaiApp": {
+    "ownerProcess": {
+      "home": {
+        "title": "Owner Processes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Owner Process",
+        "createOrEditLabel": "Create or edit a Owner Process",
+        "notFound": "No Owner Processes found"
+      },
+      "created": "A new Owner Process is created with identifier {{ param }}",
+      "updated": "A Owner Process is updated with identifier {{ param }}",
+      "deleted": "A Owner Process is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Owner Process {{ id }}?"
+      },
+      "detail": {
+        "title": "Owner Process"
+      },
+      "id": "ID",
+      "date": "Date",
+      "username": "Username",
+      "title": "Title"
+    }
+  }
+}

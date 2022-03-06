@@ -86,6 +86,43 @@ class BookResourceIT {
 
     @Test
     @Transactional
+    void createBook() throws Exception {
+        int databaseSizeBeforeCreate = bookRepository.findAll().size();
+        // Create the Book
+        BookDTO bookDTO = bookMapper.toDto(book);
+        restBookMockMvc
+            .perform(post(ENTITY_API_URL).contentType(MediaType.APPLICATION_JSON).content(TestUtil.convertObjectToJsonBytes(bookDTO)))
+            .andExpect(status().isCreated());
+
+        // Validate the Book in the database
+        List<Book> bookList = bookRepository.findAll();
+        assertThat(bookList).hasSize(databaseSizeBeforeCreate + 1);
+        Book testBook = bookList.get(bookList.size() - 1);
+        assertThat(testBook.getTitle()).isEqualTo(DEFAULT_TITLE);
+        assertThat(testBook.getAuthor()).isEqualTo(DEFAULT_AUTHOR);
+    }
+
+    @Test
+    @Transactional
+    void createBookWithExistingId() throws Exception {
+        // Create the Book with an existing ID
+        book.setId(1L);
+        BookDTO bookDTO = bookMapper.toDto(book);
+
+        int databaseSizeBeforeCreate = bookRepository.findAll().size();
+
+        // An entity with an existing ID cannot be created, so this API call must fail
+        restBookMockMvc
+            .perform(post(ENTITY_API_URL).contentType(MediaType.APPLICATION_JSON).content(TestUtil.convertObjectToJsonBytes(bookDTO)))
+            .andExpect(status().isBadRequest());
+
+        // Validate the Book in the database
+        List<Book> bookList = bookRepository.findAll();
+        assertThat(bookList).hasSize(databaseSizeBeforeCreate);
+    }
+
+    @Test
+    @Transactional
     void getAllBooks() throws Exception {
         // Initialize the database
         bookRepository.saveAndFlush(book);
@@ -121,5 +158,244 @@ class BookResourceIT {
     void getNonExistingBook() throws Exception {
         // Get the book
         restBookMockMvc.perform(get(ENTITY_API_URL_ID, Long.MAX_VALUE)).andExpect(status().isNotFound());
+    }
+
+    @Test
+    @Transactional
+    void putNewBook() throws Exception {
+        // Initialize the database
+        bookRepository.saveAndFlush(book);
+
+        int databaseSizeBeforeUpdate = bookRepository.findAll().size();
+
+        // Update the book
+        Book updatedBook = bookRepository.findById(book.getId()).get();
+        // Disconnect from session so that the updates on updatedBook are not directly saved in db
+        em.detach(updatedBook);
+        updatedBook.title(UPDATED_TITLE).author(UPDATED_AUTHOR);
+        BookDTO bookDTO = bookMapper.toDto(updatedBook);
+
+        restBookMockMvc
+            .perform(
+                put(ENTITY_API_URL_ID, bookDTO.getId())
+                    .contentType(MediaType.APPLICATION_JSON)
+                    .content(TestUtil.convertObjectToJsonBytes(bookDTO))
+            )
+            .andExpect(status().isOk());
+
+        // Validate the Book in the database
+        List<Book> bookList = bookRepository.findAll();
+        assertThat(bookList).hasSize(databaseSizeBeforeUpdate);
+        Book testBook = bookList.get(bookList.size() - 1);
+        assertThat(testBook.getTitle()).isEqualTo(UPDATED_TITLE);
+        assertThat(testBook.getAuthor()).isEqualTo(UPDATED_AUTHOR);
+    }
+
+    @Test
+    @Transactional
+    void putNonExistingBook() throws Exception {
+        int databaseSizeBeforeUpdate = bookRepository.findAll().size();
+        book.setId(count.incrementAndGet());
+
+        // Create the Book
+        BookDTO bookDTO = bookMapper.toDto(book);
+
+        // If the entity doesn't have an ID, it will throw BadRequestAlertException
+        restBookMockMvc
+            .perform(
+                put(ENTITY_API_URL_ID, bookDTO.getId())
+                    .contentType(MediaType.APPLICATION_JSON)
+                    .content(TestUtil.convertObjectToJsonBytes(bookDTO))
+            )
+            .andExpect(status().isBadRequest());
+
+        // Validate the Book in the database
+        List<Book> bookList = bookRepository.findAll();
+        assertThat(bookList).hasSize(databaseSizeBeforeUpdate);
+    }
+
+    @Test
+    @Transactional
+    void putWithIdMismatchBook() throws Exception {
+        int databaseSizeBeforeUpdate = bookRepository.findAll().size();
+        book.setId(count.incrementAndGet());
+
+        // Create the Book
+        BookDTO bookDTO = bookMapper.toDto(book);
+
+        // If url ID doesn't match entity ID, it will throw BadRequestAlertException
+        restBookMockMvc
+            .perform(
+                put(ENTITY_API_URL_ID, count.incrementAndGet())
+                    .contentType(MediaType.APPLICATION_JSON)
+                    .content(TestUtil.convertObjectToJsonBytes(bookDTO))
+            )
+            .andExpect(status().isBadRequest());
+
+        // Validate the Book in the database
+        List<Book> bookList = bookRepository.findAll();
+        assertThat(bookList).hasSize(databaseSizeBeforeUpdate);
+    }
+
+    @Test
+    @Transactional
+    void putWithMissingIdPathParamBook() throws Exception {
+        int databaseSizeBeforeUpdate = bookRepository.findAll().size();
+        book.setId(count.incrementAndGet());
+
+        // Create the Book
+        BookDTO bookDTO = bookMapper.toDto(book);
+
+        // If url ID doesn't match entity ID, it will throw BadRequestAlertException
+        restBookMockMvc
+            .perform(put(ENTITY_API_URL).contentType(MediaType.APPLICATION_JSON).content(TestUtil.convertObjectToJsonBytes(bookDTO)))
+            .andExpect(status().isMethodNotAllowed());
+
+        // Validate the Book in the database
+        List<Book> bookList = bookRepository.findAll();
+        assertThat(bookList).hasSize(databaseSizeBeforeUpdate);
+    }
+
+    @Test
+    @Transactional
+    void partialUpdateBookWithPatch() throws Exception {
+        // Initialize the database
+        bookRepository.saveAndFlush(book);
+
+        int databaseSizeBeforeUpdate = bookRepository.findAll().size();
+
+        // Update the book using partial update
+        Book partialUpdatedBook = new Book();
+        partialUpdatedBook.setId(book.getId());
+
+        partialUpdatedBook.title(UPDATED_TITLE);
+
+        restBookMockMvc
+            .perform(
+                patch(ENTITY_API_URL_ID, partialUpdatedBook.getId())
+                    .contentType("application/merge-patch+json")
+                    .content(TestUtil.convertObjectToJsonBytes(partialUpdatedBook))
+            )
+            .andExpect(status().isOk());
+
+        // Validate the Book in the database
+        List<Book> bookList = bookRepository.findAll();
+        assertThat(bookList).hasSize(databaseSizeBeforeUpdate);
+        Book testBook = bookList.get(bookList.size() - 1);
+        assertThat(testBook.getTitle()).isEqualTo(UPDATED_TITLE);
+        assertThat(testBook.getAuthor()).isEqualTo(DEFAULT_AUTHOR);
+    }
+
+    @Test
+    @Transactional
+    void fullUpdateBookWithPatch() throws Exception {
+        // Initialize the database
+        bookRepository.saveAndFlush(book);
+
+        int databaseSizeBeforeUpdate = bookRepository.findAll().size();
+
+        // Update the book using partial update
+        Book partialUpdatedBook = new Book();
+        partialUpdatedBook.setId(book.getId());
+
+        partialUpdatedBook.title(UPDATED_TITLE).author(UPDATED_AUTHOR);
+
+        restBookMockMvc
+            .perform(
+                patch(ENTITY_API_URL_ID, partialUpdatedBook.getId())
+                    .contentType("application/merge-patch+json")
+                    .content(TestUtil.convertObjectToJsonBytes(partialUpdatedBook))
+            )
+            .andExpect(status().isOk());
+
+        // Validate the Book in the database
+        List<Book> bookList = bookRepository.findAll();
+        assertThat(bookList).hasSize(databaseSizeBeforeUpdate);
+        Book testBook = bookList.get(bookList.size() - 1);
+        assertThat(testBook.getTitle()).isEqualTo(UPDATED_TITLE);
+        assertThat(testBook.getAuthor()).isEqualTo(UPDATED_AUTHOR);
+    }
+
+    @Test
+    @Transactional
+    void patchNonExistingBook() throws Exception {
+        int databaseSizeBeforeUpdate = bookRepository.findAll().size();
+        book.setId(count.incrementAndGet());
+
+        // Create the Book
+        BookDTO bookDTO = bookMapper.toDto(book);
+
+        // If the entity doesn't have an ID, it will throw BadRequestAlertException
+        restBookMockMvc
+            .perform(
+                patch(ENTITY_API_URL_ID, bookDTO.getId())
+                    .contentType("application/merge-patch+json")
+                    .content(TestUtil.convertObjectToJsonBytes(bookDTO))
+            )
+            .andExpect(status().isBadRequest());
+
+        // Validate the Book in the database
+        List<Book> bookList = bookRepository.findAll();
+        assertThat(bookList).hasSize(databaseSizeBeforeUpdate);
+    }
+
+    @Test
+    @Transactional
+    void patchWithIdMismatchBook() throws Exception {
+        int databaseSizeBeforeUpdate = bookRepository.findAll().size();
+        book.setId(count.incrementAndGet());
+
+        // Create the Book
+        BookDTO bookDTO = bookMapper.toDto(book);
+
+        // If url ID doesn't match entity ID, it will throw BadRequestAlertException
+        restBookMockMvc
+            .perform(
+                patch(ENTITY_API_URL_ID, count.incrementAndGet())
+                    .contentType("application/merge-patch+json")
+                    .content(TestUtil.convertObjectToJsonBytes(bookDTO))
+            )
+            .andExpect(status().isBadRequest());
+
+        // Validate the Book in the database
+        List<Book> bookList = bookRepository.findAll();
+        assertThat(bookList).hasSize(databaseSizeBeforeUpdate);
+    }
+
+    @Test
+    @Transactional
+    void patchWithMissingIdPathParamBook() throws Exception {
+        int databaseSizeBeforeUpdate = bookRepository.findAll().size();
+        book.setId(count.incrementAndGet());
+
+        // Create the Book
+        BookDTO bookDTO = bookMapper.toDto(book);
+
+        // If url ID doesn't match entity ID, it will throw BadRequestAlertException
+        restBookMockMvc
+            .perform(patch(ENTITY_API_URL).contentType("application/merge-patch+json").content(TestUtil.convertObjectToJsonBytes(bookDTO)))
+            .andExpect(status().isMethodNotAllowed());
+
+        // Validate the Book in the database
+        List<Book> bookList = bookRepository.findAll();
+        assertThat(bookList).hasSize(databaseSizeBeforeUpdate);
+    }
+
+    @Test
+    @Transactional
+    void deleteBook() throws Exception {
+        // Initialize the database
+        bookRepository.saveAndFlush(book);
+
+        int databaseSizeBeforeDelete = bookRepository.findAll().size();
+
+        // Delete the book
+        restBookMockMvc
+            .perform(delete(ENTITY_API_URL_ID, book.getId()).accept(MediaType.APPLICATION_JSON))
+            .andExpect(status().isNoContent());
+
+        // Validate the database contains one less item
+        List<Book> bookList = bookRepository.findAll();
+        assertThat(bookList).hasSize(databaseSizeBeforeDelete - 1);
     }
 }

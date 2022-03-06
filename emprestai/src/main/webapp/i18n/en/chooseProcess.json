@@ -1,0 +1,26 @@
+{
+  "emprestaiApp": {
+    "chooseProcess": {
+      "home": {
+        "title": "Choose Processes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Choose Process",
+        "createOrEditLabel": "Create or edit a Choose Process",
+        "notFound": "No Choose Processes found"
+      },
+      "created": "A new Choose Process is created with identifier {{ param }}",
+      "updated": "A Choose Process is updated with identifier {{ param }}",
+      "deleted": "A Choose Process is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Choose Process {{ id }}?"
+      },
+      "detail": {
+        "title": "Choose Process"
+      },
+      "id": "ID",
+      "date": "Date",
+      "username": "Username",
+      "title": "Title"
+    }
+  }
+}

@@ -11,15 +11,15 @@
   ],
   "relationships": [],
   "entityType": "start-form",
-  "processBpmnId": "ReceiverProcess",
-  "processEntityName": "ReceiverProcess",
+  "processBpmnId": "ChooseProcess",
+  "processEntityName": "ChooseProcess",
   "domainEntityName": "Emprestimo",
   "service": "serviceClass",
   "dto": "mapstruct",
   "jpaMetamodelFiltering": false,
   "readOnly": false,
   "pagination": "no",
-  "name": "ReceiverStartForm",
+  "name": "ChooseStartForm",
   "changelogDate": "20210401000002",
   "skipFakeData": true
 }

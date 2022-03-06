@@ -45,6 +45,31 @@ export default class Usuario extends Vue {
     this.clear();
   }
 
+  public prepareRemove(instance: IUsuario): void {
+    this.removeId = instance.id;
+    if (<any>this.$refs.removeEntity) {
+      (<any>this.$refs.removeEntity).show();
+    }
+  }
+
+  public removeUsuario(): void {
+    this.usuarioService()
+      .delete(this.removeId)
+      .then(() => {
+        const message = this.$t('emprestaiApp.usuario.deleted', { param: this.removeId });
+        this.$bvToast.toast(message.toString(), {
+          toaster: 'b-toaster-top-center',
+          title: 'Info',
+          variant: 'danger',
+          solid: true,
+          autoHideDelay: 5000,
+        });
+        this.removeId = null;
+        this.retrieveAllUsuarios();
+        this.closeDialog();
+      });
+  }
+
   public closeDialog(): void {
     (<any>this.$refs.removeEntity).hide();
   }

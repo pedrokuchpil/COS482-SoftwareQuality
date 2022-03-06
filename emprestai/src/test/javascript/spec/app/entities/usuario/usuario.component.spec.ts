@@ -60,5 +60,18 @@ describe('Component Tests', () => {
       expect(usuarioServiceStub.retrieve.called).toBeTruthy();
       expect(comp.usuarios[0]).toEqual(jasmine.objectContaining({ id: 123 }));
     });
+    it('Should call delete service on confirmDelete', async () => {
+      // GIVEN
+      usuarioServiceStub.delete.resolves({});
+
+      // WHEN
+      comp.prepareRemove({ id: 123 });
+      comp.removeUsuario();
+      await comp.$nextTick();
+
+      // THEN
+      expect(usuarioServiceStub.delete.called).toBeTruthy();
+      expect(usuarioServiceStub.retrieve.callCount).toEqual(1);
+    });
   });
 });

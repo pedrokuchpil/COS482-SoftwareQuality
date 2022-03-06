@@ -35,6 +35,10 @@ import UsuarioService from '@/entities/usuario/usuario.service';
 import EmprestimoService from '@/entities/emprestimo/emprestimo.service';
 import BookService from '@/entities/book/book.service';
 import ReceiverProcessService from '@/entities/receiver-process/receiver-process.service';
+import OwnerProcessService from '@/entities/owner-process/owner-process.service';
+import TakeProcessService from '@/entities/take-process/take-process.service';
+import ChooseProcessService from '@/entities/choose-process/choose-process.service';
+import AcceptProcessService from '@/entities/accept-process/accept-process.service';
 // jhipster-needle-add-entity-service-to-main-import - JHipster will import entities services here
 
 /* tslint:enable */
@@ -102,6 +106,10 @@ new Vue({
     emprestimoService: () => new EmprestimoService(),
     bookService: () => new BookService(),
     receiverProcessService: () => new ReceiverProcessService(),
+    ownerProcessService: () => new OwnerProcessService(),
+    takeProcessService: () => new TakeProcessService(),
+    chooseProcessService: () => new ChooseProcessService(),
+    acceptProcessService: () => new AcceptProcessService(),
     // jhipster-needle-add-entity-service-to-main - JHipster will import entities services here
     accountService: () => accountService,
   },

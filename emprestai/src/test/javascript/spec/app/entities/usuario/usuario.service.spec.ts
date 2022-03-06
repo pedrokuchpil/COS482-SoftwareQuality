@@ -52,6 +52,87 @@ describe('Service Tests', () => {
           });
       });
 
+      it('should create a Usuario', async () => {
+        const returnedFromService = Object.assign(
+          {
+            id: 0,
+          },
+          elemDefault
+        );
+        const expected = Object.assign({}, returnedFromService);
+
+        axiosStub.post.resolves({ data: returnedFromService });
+        return service.create({}).then(res => {
+          expect(res).toMatchObject(expected);
+        });
+      });
+
+      it('should not create a Usuario', async () => {
+        axiosStub.post.rejects(error);
+
+        return service
+          .create({})
+          .then()
+          .catch(err => {
+            expect(err).toMatchObject(error);
+          });
+      });
+
+      it('should update a Usuario', async () => {
+        const returnedFromService = Object.assign(
+          {
+            username: 'BBBBBB',
+          },
+          elemDefault
+        );
+
+        const expected = Object.assign({}, returnedFromService);
+        axiosStub.put.resolves({ data: returnedFromService });
+
+        return service.update(expected).then(res => {
+          expect(res).toMatchObject(expected);
+        });
+      });
+
+      it('should not update a Usuario', async () => {
+        axiosStub.put.rejects(error);
+
+        return service
+          .update({})
+          .then()
+          .catch(err => {
+            expect(err).toMatchObject(error);
+          });
+      });
+
+      it('should partial update a Usuario', async () => {
+        const patchObject = Object.assign(
+          {
+            username: 'BBBBBB',
+          },
+          new Usuario()
+        );
+        const returnedFromService = Object.assign(patchObject, elemDefault);
+
+        const expected = Object.assign({}, returnedFromService);
+        axiosStub.patch.resolves({ data: returnedFromService });
+
+        return service.partialUpdate(patchObject).then(res => {
+          expect(res).toMatchObject(expected);
+        });
+      });
+
+      it('should not partial update a Usuario', async () => {
+        axiosStub.patch.rejects(error);
+
+        return service
+          .partialUpdate({})
+          .then()
+          .catch(err => {
+            expect(err).toMatchObject(error);
+          });
+      });
+
       it('should return a list of Usuario', async () => {
         const returnedFromService = Object.assign(
           {
@@ -71,6 +152,24 @@ describe('Service Tests', () => {
 
         return service
           .retrieve()
+          .then()
+          .catch(err => {
+            expect(err).toMatchObject(error);
+          });
+      });
+
+      it('should delete a Usuario', async () => {
+        axiosStub.delete.resolves({ ok: true });
+        return service.delete(123).then(res => {
+          expect(res.ok).toBeTruthy();
+        });
+      });
+
+      it('should not delete a Usuario', async () => {
+        axiosStub.delete.rejects(error);
+
+        return service
+          .delete(123)
           .then()
           .catch(err => {
             expect(err).toMatchObject(error);

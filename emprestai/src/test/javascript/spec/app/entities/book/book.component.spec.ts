@@ -60,5 +60,18 @@ describe('Component Tests', () => {
       expect(bookServiceStub.retrieve.called).toBeTruthy();
       expect(comp.books[0]).toEqual(jasmine.objectContaining({ id: 123 }));
     });
+    it('Should call delete service on confirmDelete', async () => {
+      // GIVEN
+      bookServiceStub.delete.resolves({});
+
+      // WHEN
+      comp.prepareRemove({ id: 123 });
+      comp.removeBook();
+      await comp.$nextTick();
+
+      // THEN
+      expect(bookServiceStub.delete.called).toBeTruthy();
+      expect(bookServiceStub.retrieve.callCount).toEqual(1);
+    });
   });
 });

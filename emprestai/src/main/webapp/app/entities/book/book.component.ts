@@ -45,6 +45,31 @@ export default class Book extends Vue {
     this.clear();
   }
 
+  public prepareRemove(instance: IBook): void {
+    this.removeId = instance.id;
+    if (<any>this.$refs.removeEntity) {
+      (<any>this.$refs.removeEntity).show();
+    }
+  }
+
+  public removeBook(): void {
+    this.bookService()
+      .delete(this.removeId)
+      .then(() => {
+        const message = this.$t('emprestaiApp.book.deleted', { param: this.removeId });
+        this.$bvToast.toast(message.toString(), {
+          toaster: 'b-toaster-top-center',
+          title: 'Info',
+          variant: 'danger',
+          solid: true,
+          autoHideDelay: 5000,
+        });
+        this.removeId = null;
+        this.retrieveAllBooks();
+        this.closeDialog();
+      });
+  }
+
   public closeDialog(): void {
     (<any>this.$refs.removeEntity).hide();
   }

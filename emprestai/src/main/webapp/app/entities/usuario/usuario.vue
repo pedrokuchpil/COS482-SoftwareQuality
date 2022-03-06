@@ -7,6 +7,17 @@
           <font-awesome-icon icon="sync" :spin="isFetching"></font-awesome-icon>
           <span v-text="$t('emprestaiApp.usuario.home.refreshListLabel')">Refresh List</span>
         </button>
+        <router-link :to="{ name: 'UsuarioCreate' }" custom v-slot="{ navigate }">
+          <button
+            @click="navigate"
+            id="jh-create-entity"
+            data-cy="entityCreateButton"
+            class="btn btn-primary jh-create-entity create-usuario"
+          >
+            <font-awesome-icon icon="plus"></font-awesome-icon>
+            <span v-text="$t('emprestaiApp.usuario.home.createLabel')"> Create a new Usuario </span>
+          </button>
+        </router-link>
       </div>
     </h2>
     <br />
@@ -36,6 +47,22 @@
                     <span class="d-none d-md-inline" v-text="$t('entity.action.view')">View</span>
                   </button>
                 </router-link>
+                <router-link :to="{ name: 'UsuarioEdit', params: { usuarioId: usuario.id } }" custom v-slot="{ navigate }">
+                  <button @click="navigate" class="btn btn-primary btn-sm edit" data-cy="entityEditButton">
+                    <font-awesome-icon icon="pencil-alt"></font-awesome-icon>
+                    <span class="d-none d-md-inline" v-text="$t('entity.action.edit')">Edit</span>
+                  </button>
+                </router-link>
+                <b-button
+                  v-on:click="prepareRemove(usuario)"
+                  variant="danger"
+                  class="btn btn-sm"
+                  data-cy="entityDeleteButton"
+                  v-b-modal.removeEntity
+                >
+                  <font-awesome-icon icon="times"></font-awesome-icon>
+                  <span class="d-none d-md-inline" v-text="$t('entity.action.delete')">Delete</span>
+                </b-button>
               </div>
             </td>
           </tr>

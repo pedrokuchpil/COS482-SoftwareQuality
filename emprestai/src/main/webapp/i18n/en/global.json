@@ -18,6 +18,11 @@
         "receiverStartForm": "Receiver Start Form",
         "receiverProcess": "Receiver Process",
         "selecionarLivro": "Selecionar Livro",
+        "ownerProcess": "Owner Process",
+        "takeProcess": "Take Process",
+        "chooseProcess": "Choose Process",
+        "acceptProcess": "Accept Process",
+        "chooseStartForm": "Choose Start Form",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {
