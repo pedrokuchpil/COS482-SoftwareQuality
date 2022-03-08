@@ -18,6 +18,14 @@
           <dd>
             <span>{{ book.author }}</span>
           </dd>
+          <dt>
+            <span v-text="$t('emprestaiApp.book.usuario')">Usuario</span>
+          </dt>
+          <dd>
+            <div v-if="book.usuario">
+              <router-link :to="{ name: 'UsuarioView', params: { usuarioId: book.usuario.id } }">{{ book.usuario.username }}</router-link>
+            </div>
+          </dd>
         </dl>
         <button type="submit" v-on:click.prevent="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
           <font-awesome-icon icon="arrow-left"></font-awesome-icon>&nbsp;<span v-text="$t('entity.action.back')"> Back</span>

@@ -1,5 +1,6 @@
 package com.mycompany.myapp.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
 import java.time.LocalDate;
 import javax.persistence.*;
@@ -25,6 +26,7 @@ public class Emprestimo implements Serializable {
     private LocalDate date;
 
     @ManyToOne
+    @JsonIgnoreProperties(value = { "usuario" }, allowSetters = true)
     private Book book;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
@@ -58,13 +60,13 @@ public class Emprestimo implements Serializable {
         return this.book;
     }
 
-    public Emprestimo book(Book Book) {
-        this.setBook(Book);
+    public Emprestimo book(Book book) {
+        this.setBook(book);
         return this;
     }
 
-    public void setBook(Book Book) {
-        this.book = Book;
+    public void setBook(Book book) {
+        this.book = book;
     }
 
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here

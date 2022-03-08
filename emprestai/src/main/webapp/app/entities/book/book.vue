@@ -26,6 +26,7 @@
             <th scope="row"><span v-text="$t('global.field.id')">ID</span></th>
             <th scope="row"><span v-text="$t('emprestaiApp.book.title')">Title</span></th>
             <th scope="row"><span v-text="$t('emprestaiApp.book.author')">Author</span></th>
+            <th scope="row"><span v-text="$t('emprestaiApp.book.usuario')">Usuario</span></th>
             <th scope="row"></th>
           </tr>
         </thead>
@@ -36,6 +37,11 @@
             </td>
             <td>{{ book.title }}</td>
             <td>{{ book.author }}</td>
+            <td>
+              <div v-if="book.usuario">
+                <router-link :to="{ name: 'UsuarioView', params: { usuarioId: book.usuario.id } }">{{ book.usuario.username }}</router-link>
+              </div>
+            </td>
             <td class="text-right">
               <div class="btn-group">
                 <router-link :to="{ name: 'BookView', params: { bookId: book.id } }" custom v-slot="{ navigate }">

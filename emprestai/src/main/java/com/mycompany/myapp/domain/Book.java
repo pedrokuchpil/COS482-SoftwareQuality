@@ -26,6 +26,9 @@ public class Book implements Serializable {
     @Column(name = "author")
     private String author;
 
+    @ManyToOne
+    private Usuario usuario;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
         return id;
@@ -64,6 +67,19 @@ public class Book implements Serializable {
 
     public void setAuthor(String author) {
         this.author = author;
+    }
+
+    public Usuario getUsuario() {
+        return this.usuario;
+    }
+
+    public Book usuario(Usuario usuario) {
+        this.setUsuario(usuario);
+        return this;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here

@@ -9,7 +9,7 @@
     {
       "relationshipName": "book",
       "relationshipType": "many-to-one",
-      "otherEntityName": "Book",
+      "otherEntityName": "book",
       "otherEntityField": "title"
     }
   ],

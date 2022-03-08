@@ -17,7 +17,7 @@
           </dt>
           <dd>
             <div v-if="emprestimo.book">
-              <router-link :to="{ name: 'BookView', params: { BookId: emprestimo.book.id } }">{{ emprestimo.book.title }}</router-link>
+              <router-link :to="{ name: 'BookView', params: { bookId: emprestimo.book.id } }">{{ emprestimo.book.title }}</router-link>
             </div>
           </dd>
         </dl>

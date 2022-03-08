@@ -9,7 +9,14 @@
       "fieldType": "String"
     }
   ],
-  "relationships": [],
+  "relationships": [
+    {
+      "relationshipName": "usuario",
+      "relationshipType": "many-to-one",
+      "otherEntityName": "usuario",
+      "otherEntityField": "username"
+    }
+  ],
   "entityType": "domain",
   "service": "serviceClass",
   "dto": "mapstruct",

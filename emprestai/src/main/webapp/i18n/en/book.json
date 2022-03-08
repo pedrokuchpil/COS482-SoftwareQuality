@@ -19,7 +19,8 @@
       },
       "id": "ID",
       "title": "Title",
-      "author": "Author"
+      "author": "Author",
+      "usuario": "Usuario"
     }
   }
 }
