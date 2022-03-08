@@ -1,19 +1,19 @@
 import { Component, Vue, Inject } from 'vue-property-decorator';
-import { IOwnerProcess } from '@/shared/model/owner-process.model';
+import { IReadProcess } from '@/shared/model/read-process.model';
 
 import { ProcessDefinition, ProcessDefinitionService } from 'akip-vue-community';
 
-import OwnerProcessService from './owner-process.service';
+import ReadProcessService from './read-process.service';
 
 @Component
-export default class OwnerProcessListComponent extends Vue {
-  @Inject('ownerProcessService') private ownerProcessService: () => OwnerProcessService;
+export default class ReadProcessListComponent extends Vue {
+  @Inject('readProcessService') private readProcessService: () => ReadProcessService;
 
   private processDefinitionService: ProcessDefinitionService = new ProcessDefinitionService();
 
-  public bpmnProcessDefinitionId: string = 'OwnerProcess';
+  public bpmnProcessDefinitionId: string = 'ReadProcess';
   public processDefinition: ProcessDefinition = new ProcessDefinition();
-  public ownerProcessList: IOwnerProcess[] = [];
+  public readProcessList: IReadProcess[] = [];
 
   public isFetchingProcessDefinition = false;
   public isFetchingProcessInstances = false;
@@ -42,11 +42,11 @@ export default class OwnerProcessListComponent extends Vue {
 
   public retrieveProcessInstances(): void {
     this.isFetchingProcessInstances = true;
-    this.ownerProcessService()
+    this.readProcessService()
       .retrieve()
       .then(
         res => {
-          this.ownerProcessList = res.data;
+          this.readProcessList = res.data;
           this.isFetchingProcessInstances = false;
         },
         err => {

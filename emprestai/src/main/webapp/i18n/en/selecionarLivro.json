@@ -18,7 +18,8 @@
         "title": "Selecionar Livro"
       },
       "id": "ID",
-      "title": "Title"
+      "date": "Date",
+      "book": "Book"
     }
   }
 }

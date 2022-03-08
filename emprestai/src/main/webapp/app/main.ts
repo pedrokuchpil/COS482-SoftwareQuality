@@ -31,14 +31,14 @@ import TranslationService from '@/locale/translation.service';
 import UserOAuth2Service from '@/entities/user/user.oauth2.service';
 /* tslint:disable */
 
-import UsuarioService from '@/entities/usuario/usuario.service';
 import EmprestimoService from '@/entities/emprestimo/emprestimo.service';
-import BookService from '@/entities/book/book.service';
-import ReceiverProcessService from '@/entities/receiver-process/receiver-process.service';
-import OwnerProcessService from '@/entities/owner-process/owner-process.service';
-import TakeProcessService from '@/entities/take-process/take-process.service';
 import ChooseProcessService from '@/entities/choose-process/choose-process.service';
+import TakeProcessService from '@/entities/take-process/take-process.service';
+import ReadProcessService from '@/entities/read-process/read-process.service';
+import ReceiverProcessService from '@/entities/receiver-process/receiver-process.service';
 import AcceptProcessService from '@/entities/accept-process/accept-process.service';
+import UsuarioService from '@/entities/usuario/usuario.service';
+import BookService from '@/entities/book/book.service';
 // jhipster-needle-add-entity-service-to-main-import - JHipster will import entities services here
 
 /* tslint:enable */
@@ -102,14 +102,14 @@ new Vue({
 
     userOAuth2Service: () => new UserOAuth2Service(),
     translationService: () => translationService,
-    usuarioService: () => new UsuarioService(),
     emprestimoService: () => new EmprestimoService(),
-    bookService: () => new BookService(),
-    receiverProcessService: () => new ReceiverProcessService(),
-    ownerProcessService: () => new OwnerProcessService(),
-    takeProcessService: () => new TakeProcessService(),
     chooseProcessService: () => new ChooseProcessService(),
+    takeProcessService: () => new TakeProcessService(),
+    readProcessService: () => new ReadProcessService(),
+    receiverProcessService: () => new ReceiverProcessService(),
     acceptProcessService: () => new AcceptProcessService(),
+    usuarioService: () => new UsuarioService(),
+    bookService: () => new BookService(),
     // jhipster-needle-add-entity-service-to-main - JHipster will import entities services here
     accountService: () => accountService,
   },

@@ -4,14 +4,14 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
     <!--
-        Added the constraints for entity Book.
+        Added the constraints for entity ReceiverProcess.
     -->
-    <changeSet id="20210401000001-2" author="jhipster">
+    <changeSet id="20210401000002-2" author="jhipster">
 
-        <addForeignKeyConstraint baseColumnNames="owner_id"
-                                 baseTableName="book"
-                                 constraintName="fk_book__owner_id"
+        <addForeignKeyConstraint baseColumnNames="book_id"
+                                 baseTableName="receiver_process"
+                                 constraintName="fk_receiver_process__book_id"
                                  referencedColumnNames="id"
-                                 referencedTableName="usuario"/>
+                                 referencedTableName="book"/>
     </changeSet>
 </databaseChangeLog>

@@ -30,30 +30,20 @@
               </div>
               <div class="card-body py-0">
                 <div class="form-group">
-                  <label class="form-control-label" v-text="$t('emprestaiApp.receiverProcess.username')">username</label>
+                  <label class="form-control-label" v-text="$t('emprestaiApp.receiverProcess.book')" for="receiver-process-book"
+                    >Book</label
+                  >
                   <input
+                    v-if="receiverProcess.emprestimo.book"
                     readonly
                     type="text"
                     class="form-control"
-                    name="username"
-                    id="emprestimo-username"
-                    data-cy="username"
-                    v-model="receiverProcess.emprestimo.username"
+                    name="book"
+                    id="emprestimo-book"
+                    data-cy="book"
+                    :value="receiverProcess.emprestimo.book.title"
                   />
-                </div>
-              </div>
-              <div class="card-body py-0">
-                <div class="form-group">
-                  <label class="form-control-label" v-text="$t('emprestaiApp.receiverProcess.title')">title</label>
-                  <input
-                    readonly
-                    type="text"
-                    class="form-control"
-                    name="title"
-                    id="emprestimo-title"
-                    data-cy="title"
-                    v-model="receiverProcess.emprestimo.title"
-                  />
+                  <input v-else readonly type="text" class="form-control" name="book" id="emprestimo-book" data-cy="book" value="" />
                 </div>
               </div>
             </div>

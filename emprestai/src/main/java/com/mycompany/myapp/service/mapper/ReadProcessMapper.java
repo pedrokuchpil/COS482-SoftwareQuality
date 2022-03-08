@@ -1,16 +1,16 @@
 package com.mycompany.myapp.service.mapper;
 
 import com.mycompany.myapp.domain.*;
-import com.mycompany.myapp.service.dto.OwnerProcessDTO;
+import com.mycompany.myapp.service.dto.ReadProcessDTO;
 import org.akip.service.mapper.ProcessInstanceMapper;
 import org.mapstruct.*;
 
 /**
- * Mapper for the entity {@link OwnerProcess} and its DTO {@link OwnerProcessDTO}.
+ * Mapper for the entity {@link ReadProcess} and its DTO {@link ReadProcessDTO}.
  */
 @Mapper(componentModel = "spring", uses = { ProcessInstanceMapper.class, EmprestimoMapper.class })
-public interface OwnerProcessMapper extends EntityMapper<OwnerProcessDTO, OwnerProcess> {
+public interface ReadProcessMapper extends EntityMapper<ReadProcessDTO, ReadProcess> {
     @Mapping(target = "processInstance", source = "processInstance")
     @Mapping(target = "emprestimo", source = "emprestimo")
-    OwnerProcessDTO toDto(OwnerProcess s);
+    ReadProcessDTO toDto(ReadProcess s);
 }

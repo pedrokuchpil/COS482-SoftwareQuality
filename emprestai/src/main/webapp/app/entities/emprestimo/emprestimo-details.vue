@@ -13,33 +13,11 @@
             <span>{{ emprestimo.date }}</span>
           </dd>
           <dt>
-            <span v-text="$t('emprestaiApp.emprestimo.username')">Username</span>
-          </dt>
-          <dd>
-            <span>{{ emprestimo.username }}</span>
-          </dd>
-          <dt>
-            <span v-text="$t('emprestaiApp.emprestimo.title')">Title</span>
-          </dt>
-          <dd>
-            <span>{{ emprestimo.title }}</span>
-          </dd>
-          <dt>
-            <span v-text="$t('emprestaiApp.emprestimo.receiver')">Receiver</span>
-          </dt>
-          <dd>
-            <div v-if="emprestimo.receiver">
-              <router-link :to="{ name: 'UsuarioView', params: { UsuarioId: emprestimo.receiver.id } }">{{
-                emprestimo.receiver.username
-              }}</router-link>
-            </div>
-          </dd>
-          <dt>
             <span v-text="$t('emprestaiApp.emprestimo.book')">Book</span>
           </dt>
           <dd>
             <div v-if="emprestimo.book">
-              <router-link :to="{ name: 'BookView', params: { BookId: emprestimo.book.id } }">{{ emprestimo.book.id }}</router-link>
+              <router-link :to="{ name: 'BookView', params: { BookId: emprestimo.book.id } }">{{ emprestimo.book.title }}</router-link>
             </div>
           </dd>
         </dl>

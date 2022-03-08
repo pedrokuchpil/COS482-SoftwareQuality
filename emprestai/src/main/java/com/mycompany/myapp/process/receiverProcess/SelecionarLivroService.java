@@ -73,7 +73,8 @@ public class SelecionarLivroService {
         EmprestimoDTO emprestimoDTO = emprestimoService
             .findOne(selecionarLivroContext.getReceiverProcess().getEmprestimo().getId())
             .orElseThrow();
-        emprestimoDTO.setTitle(selecionarLivroContext.getReceiverProcess().getEmprestimo().getTitle());
+        emprestimoDTO.setDate(selecionarLivroContext.getReceiverProcess().getEmprestimo().getDate());
+        emprestimoDTO.setBook(selecionarLivroContext.getReceiverProcess().getEmprestimo().getBook());
         emprestimoService.save(emprestimoDTO);
     }
 

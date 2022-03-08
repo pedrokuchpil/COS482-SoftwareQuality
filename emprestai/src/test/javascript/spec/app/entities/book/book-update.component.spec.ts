@@ -8,8 +8,6 @@ import BookUpdateComponent from '@/entities/book/book-update.vue';
 import BookClass from '@/entities/book/book-update.component';
 import BookService from '@/entities/book/book.service';
 
-import UsuarioService from '@/entities/usuario/usuario.service';
-
 const localVue = createLocalVue();
 
 config.initVueApp(localVue);
@@ -39,8 +37,6 @@ describe('Component Tests', () => {
         router,
         provide: {
           bookService: () => bookServiceStub,
-
-          UsuarioService: () => new UsuarioService(),
         },
       });
       comp = wrapper.vm;

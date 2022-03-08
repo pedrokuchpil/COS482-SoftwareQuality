@@ -1,8 +1,5 @@
 import { Component, Vue, Inject } from 'vue-property-decorator';
 
-import UsuarioService from '@/entities/usuario/usuario.service';
-import { IUsuario } from '@/shared/model/usuario.model';
-
 import { IBook, Book } from '@/shared/model/book.model';
 import BookService from './book.service';
 
@@ -19,10 +16,6 @@ const validations: any = {
 export default class BookUpdate extends Vue {
   @Inject('bookService') private bookService: () => BookService;
   public book: IBook = new Book();
-
-  @Inject('UsuarioService') private UsuarioService: () => UsuarioService;
-
-  public Usuarios: IUsuario[] = [];
   public isSaving = false;
   public currentLanguage = '';
 
@@ -31,7 +24,6 @@ export default class BookUpdate extends Vue {
       if (to.params.bookId) {
         vm.retrieveBook(to.params.bookId);
       }
-      vm.initRelationships();
     });
   }
 
@@ -92,11 +84,5 @@ export default class BookUpdate extends Vue {
     this.$router.go(-1);
   }
 
-  public initRelationships(): void {
-    this.UsuarioService()
-      .retrieve()
-      .then(res => {
-        this.Usuarios = res.data;
-      });
-  }
+  public initRelationships(): void {}
 }

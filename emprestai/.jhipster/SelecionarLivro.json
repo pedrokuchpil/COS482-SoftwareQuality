@@ -1,11 +1,19 @@
 {
   "fields": [
     {
-      "fieldName": "title",
-      "fieldType": "String"
+      "fieldName": "date",
+      "fieldType": "LocalDate",
+      "fieldReadOnly": true
     }
   ],
-  "relationships": [],
+  "relationships": [
+    {
+      "relationshipName": "book",
+      "relationshipType": "many-to-one",
+      "otherEntityName": "book",
+      "otherEntityField": "title"
+    }
+  ],
   "entityType": "user-task-form",
   "processBpmnId": "ReceiverProcess",
   "processEntityName": "ReceiverProcess",
@@ -18,5 +26,5 @@
   "pagination": "no",
   "skipFakeData": true,
   "name": "SelecionarLivro",
-  "changelogDate": "20210401000004"
+  "changelogDate": "20220401000001"
 }

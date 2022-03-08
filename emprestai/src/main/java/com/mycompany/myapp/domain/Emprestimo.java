@@ -1,6 +1,5 @@
 package com.mycompany.myapp.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
 import java.time.LocalDate;
 import javax.persistence.*;
@@ -25,17 +24,7 @@ public class Emprestimo implements Serializable {
     @Column(name = "date")
     private LocalDate date;
 
-    @Column(name = "username")
-    private String username;
-
-    @Column(name = "title")
-    private String title;
-
     @ManyToOne
-    private Usuario receiver;
-
-    @ManyToOne
-    @JsonIgnoreProperties(value = { "owner" }, allowSetters = true)
     private Book book;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
@@ -63,45 +52,6 @@ public class Emprestimo implements Serializable {
 
     public void setDate(LocalDate date) {
         this.date = date;
-    }
-
-    public String getUsername() {
-        return this.username;
-    }
-
-    public Emprestimo username(String username) {
-        this.username = username;
-        return this;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getTitle() {
-        return this.title;
-    }
-
-    public Emprestimo title(String title) {
-        this.title = title;
-        return this;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public Usuario getReceiver() {
-        return this.receiver;
-    }
-
-    public Emprestimo receiver(Usuario Usuario) {
-        this.setReceiver(Usuario);
-        return this;
-    }
-
-    public void setReceiver(Usuario Usuario) {
-        this.receiver = Usuario;
     }
 
     public Book getBook() {
@@ -142,8 +92,6 @@ public class Emprestimo implements Serializable {
         return "Emprestimo{" +
             "id=" + getId() +
             ", date='" + getDate() + "'" +
-            ", username='" + getUsername() + "'" +
-            ", title='" + getTitle() + "'" +
             "}";
     }
 }

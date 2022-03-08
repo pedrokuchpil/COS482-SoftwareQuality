@@ -38,19 +38,6 @@
               v-model="$v.book.author.$model"
             />
           </div>
-          <div class="form-group">
-            <label class="form-control-label" v-text="$t('emprestaiApp.book.owner')" for="book-owner">Owner</label>
-            <select class="form-control" id="book-owner" data-cy="owner" name="owner" v-model="book.owner">
-              <option v-bind:value="null"></option>
-              <option
-                v-bind:value="book.owner && UsuarioOption.id === book.owner.id ? book.owner : UsuarioOption"
-                v-for="UsuarioOption in Usuarios"
-                :key="UsuarioOption.id"
-              >
-                {{ UsuarioOption.username }}
-              </option>
-            </select>
-          </div>
         </div>
         <div>
           <button type="button" id="cancel-save" class="btn btn-secondary" v-on:click="previousState()">

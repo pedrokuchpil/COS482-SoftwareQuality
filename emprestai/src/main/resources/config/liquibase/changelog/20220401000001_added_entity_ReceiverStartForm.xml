@@ -7,14 +7,14 @@
                         http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
     <!--
-        Added the entity Usuario.
+        Added the entity ReceiverStartForm.
     -->
-    <changeSet id="20210401000001-1" author="jhipster">
-        <createTable tableName="usuario">
+    <changeSet id="20220401000001-1" author="jhipster">
+        <createTable tableName="receiver_start_form">
             <column name="id" type="bigint">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="username" type="varchar(255)">
+            <column name="date" type="date">
                 <constraints nullable="true" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->

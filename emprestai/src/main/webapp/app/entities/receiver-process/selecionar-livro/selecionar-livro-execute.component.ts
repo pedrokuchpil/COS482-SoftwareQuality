@@ -1,5 +1,8 @@
 import { Component, Vue, Inject } from 'vue-property-decorator';
 
+import BookService from '@/entities/book/book.service';
+import { IBook } from '@/shared/model/book.model';
+
 import SelecionarLivroService from './selecionar-livro.service';
 import { SelecionarLivroContext } from './selecionar-livro.model';
 
@@ -7,7 +10,7 @@ const validations: any = {
   taskContext: {
     receiverProcess: {
       emprestimo: {
-        title: {},
+        date: {},
       },
     },
   },
@@ -19,6 +22,10 @@ const validations: any = {
 export default class SelecionarLivroExecuteComponent extends Vue {
   private selecionarLivroService: SelecionarLivroService = new SelecionarLivroService();
   private taskContext: SelecionarLivroContext = {};
+
+  @Inject('bookService') private bookService: () => BookService;
+
+  public books: IBook[] = [];
   public isSaving = false;
 
   beforeRouteEnter(to, from, next) {
@@ -26,6 +33,7 @@ export default class SelecionarLivroExecuteComponent extends Vue {
       if (to.params.taskInstanceId) {
         vm.claimTaskInstance(to.params.taskInstanceId);
       }
+      vm.initRelationships();
     });
   }
 
@@ -45,5 +53,11 @@ export default class SelecionarLivroExecuteComponent extends Vue {
     });
   }
 
-  public initRelationships(): void {}
+  public initRelationships(): void {
+    this.bookService()
+      .retrieve()
+      .then(res => {
+        this.books = res.data;
+      });
+  }
 }

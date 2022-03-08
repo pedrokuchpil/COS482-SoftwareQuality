@@ -48,14 +48,14 @@ public class CacheConfiguration {
             createCache(cm, com.mycompany.myapp.domain.User.class.getName());
             createCache(cm, com.mycompany.myapp.domain.Authority.class.getName());
             createCache(cm, com.mycompany.myapp.domain.User.class.getName() + ".authorities");
-            createCache(cm, com.mycompany.myapp.domain.Usuario.class.getName());
             createCache(cm, com.mycompany.myapp.domain.Emprestimo.class.getName());
-            createCache(cm, com.mycompany.myapp.domain.Book.class.getName());
-            createCache(cm, com.mycompany.myapp.domain.ReceiverProcess.class.getName());
-            createCache(cm, com.mycompany.myapp.domain.OwnerProcess.class.getName());
-            createCache(cm, com.mycompany.myapp.domain.TakeProcess.class.getName());
             createCache(cm, com.mycompany.myapp.domain.ChooseProcess.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.TakeProcess.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.ReadProcess.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.ReceiverProcess.class.getName());
             createCache(cm, com.mycompany.myapp.domain.AcceptProcess.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Usuario.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Book.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

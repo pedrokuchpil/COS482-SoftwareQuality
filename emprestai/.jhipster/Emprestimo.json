@@ -3,28 +3,14 @@
     {
       "fieldName": "date",
       "fieldType": "LocalDate"
-    },
-    {
-      "fieldName": "username",
-      "fieldType": "String"
-    },
-    {
-      "fieldName": "title",
-      "fieldType": "String"
     }
   ],
   "relationships": [
     {
-      "relationshipName": "receiver",
-      "relationshipType": "many-to-one",
-      "otherEntityName": "Usuario",
-      "otherEntityField": "username"
-    },
-    {
       "relationshipName": "book",
       "relationshipType": "many-to-one",
       "otherEntityName": "Book",
-      "otherEntityField": "id"
+      "otherEntityField": "title"
     }
   ],
   "entityType": "domain",
@@ -34,6 +20,6 @@
   "readOnly": true,
   "pagination": "no",
   "name": "Emprestimo",
-  "changelogDate": "20210401000001",
+  "changelogDate": "20220401000001",
   "skipFakeData": true
 }

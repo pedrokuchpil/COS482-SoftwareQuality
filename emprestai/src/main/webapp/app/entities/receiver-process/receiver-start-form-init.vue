@@ -44,26 +44,6 @@
                     />
                   </b-input-group>
                 </div>
-                <div class="form-group">
-                  <label
-                    class="form-control-label"
-                    v-text="$t('emprestaiApp.receiverStartForm.username')"
-                    for="receiver-start-form-username"
-                    >Username</label
-                  >
-                  <input
-                    type="text"
-                    class="form-control"
-                    name="username"
-                    id="receiver-start-form-username"
-                    data-cy="username"
-                    :class="{
-                      valid: !$v.receiverProcess.emprestimo.username.$invalid,
-                      invalid: $v.receiverProcess.emprestimo.username.$invalid,
-                    }"
-                    v-model="$v.receiverProcess.emprestimo.username.$model"
-                  />
-                </div>
               </div>
             </template>
           </akip-show-process-definition>

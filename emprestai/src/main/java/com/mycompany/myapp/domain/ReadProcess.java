@@ -8,12 +8,12 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 /**
- * A OwnerProcess.
+ * A ReadProcess.
  */
 @Entity
-@Table(name = "owner_process")
+@Table(name = "read_process")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-public class OwnerProcess implements Serializable {
+public class ReadProcess implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -38,7 +38,7 @@ public class OwnerProcess implements Serializable {
         this.id = id;
     }
 
-    public OwnerProcess id(Long id) {
+    public ReadProcess id(Long id) {
         this.id = id;
         return this;
     }
@@ -51,7 +51,7 @@ public class OwnerProcess implements Serializable {
         this.processInstance = processInstance;
     }
 
-    public OwnerProcess processInstance(ProcessInstance processInstance) {
+    public ReadProcess processInstance(ProcessInstance processInstance) {
         this.setProcessInstance(processInstance);
         return this;
     }
@@ -64,7 +64,7 @@ public class OwnerProcess implements Serializable {
         this.emprestimo = emprestimo;
     }
 
-    public OwnerProcess Emprestimo(Emprestimo emprestimo) {
+    public ReadProcess Emprestimo(Emprestimo emprestimo) {
         this.setEmprestimo(emprestimo);
         return this;
     }
@@ -76,10 +76,10 @@ public class OwnerProcess implements Serializable {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof OwnerProcess)) {
+        if (!(o instanceof ReadProcess)) {
             return false;
         }
-        return id != null && id.equals(((OwnerProcess) o).id);
+        return id != null && id.equals(((ReadProcess) o).id);
     }
 
     @Override
@@ -91,7 +91,7 @@ public class OwnerProcess implements Serializable {
     // prettier-ignore
     @Override
     public String toString() {
-        return "OwnerProcess{" +
+        return "ReadProcess{" +
             "id=" + getId() +
             "}";
     }

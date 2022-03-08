@@ -17,15 +17,6 @@
             <column name="date" type="date">
                 <constraints nullable="true" />
             </column>
-            <column name="username" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
-            <column name="title" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
-            <column name="receiver_id" type="bigint">
-                <constraints nullable="true" />
-            </column>
             <column name="book_id" type="bigint">
                 <constraints nullable="true" />
             </column>

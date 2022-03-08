@@ -9,19 +9,45 @@
           <template v-slot:body>
             <hr />
             <div class="form-group">
-              <label class="form-control-label" v-text="$t('emprestaiApp.selecionarLivro.title')" for="selecionar-livro-title">Title</label>
-              <input
-                type="text"
+              <label class="form-control-label" v-text="$t('emprestaiApp.selecionarLivro.date')" for="selecionar-livro-date">Date</label>
+              <b-input-group class="mb-3">
+                <b-form-input
+                  id="selecionar-livro-date"
+                  readonly
+                  data-cy="date"
+                  type="text"
+                  class="form-control"
+                  name="date"
+                  :class="{
+                    valid: !$v.taskContext.receiverProcess.emprestimo.date.$invalid,
+                    invalid: $v.taskContext.receiverProcess.emprestimo.date.$invalid,
+                  }"
+                  v-model="$v.taskContext.receiverProcess.emprestimo.date.$model"
+                />
+              </b-input-group>
+            </div>
+            <div class="form-group">
+              <label class="form-control-label" v-text="$t('emprestaiApp.selecionarLivro.book')" for="selecionar-livro-book">Book</label>
+              <select
                 class="form-control"
-                name="title"
-                id="selecionar-livro-title"
-                data-cy="title"
-                :class="{
-                  valid: !$v.taskContext.receiverProcess.emprestimo.title.$invalid,
-                  invalid: $v.taskContext.receiverProcess.emprestimo.title.$invalid,
-                }"
-                v-model="$v.taskContext.receiverProcess.emprestimo.title.$model"
-              />
+                id="selecionar-livro-book"
+                data-cy="book"
+                name="book"
+                v-model="taskContext.receiverProcess.emprestimo.book"
+              >
+                <option v-bind:value="null"></option>
+                <option
+                  v-bind:value="
+                    taskContext.receiverProcess.emprestimo.book && bookOption.id === taskContext.receiverProcess.emprestimo.book.id
+                      ? taskContext.receiverProcess.emprestimo.book
+                      : bookOption
+                  "
+                  v-for="bookOption in books"
+                  :key="bookOption.id"
+                >
+                  {{ bookOption.title }}
+                </option>
+              </select>
             </div>
           </template>
         </akip-show-task-instance>

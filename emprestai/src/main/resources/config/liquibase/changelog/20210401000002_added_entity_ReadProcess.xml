@@ -7,10 +7,10 @@
                         http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
     <!--
-        Added the entity OwnerProcess.
+        Added the entity ReadProcess.
     -->
     <changeSet id="20210401000002" author="jhipster">
-        <createTable tableName="owner_process">
+        <createTable tableName="read_process">
             <column name="id" type="bigint">
                 <constraints primaryKey="true" nullable="false"/>
             </column>

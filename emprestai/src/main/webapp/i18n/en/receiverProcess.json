@@ -19,8 +19,7 @@
       },
       "id": "ID",
       "date": "Date",
-      "username": "Username",
-      "title": "Title"
+      "book": "Book"
     }
   }
 }

@@ -11,7 +11,6 @@ const validations: any = {
   receiverProcess: {
     emprestimo: {
       date: {},
-      username: {},
     },
   },
 };

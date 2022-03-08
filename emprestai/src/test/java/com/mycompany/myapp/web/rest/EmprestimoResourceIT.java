@@ -36,12 +36,6 @@ class EmprestimoResourceIT {
     private static final LocalDate DEFAULT_DATE = LocalDate.ofEpochDay(0L);
     private static final LocalDate UPDATED_DATE = LocalDate.now(ZoneId.systemDefault());
 
-    private static final String DEFAULT_USERNAME = "AAAAAAAAAA";
-    private static final String UPDATED_USERNAME = "BBBBBBBBBB";
-
-    private static final String DEFAULT_TITLE = "AAAAAAAAAA";
-    private static final String UPDATED_TITLE = "BBBBBBBBBB";
-
     private static final String ENTITY_API_URL = "/api/emprestimos";
     private static final String ENTITY_API_URL_ID = ENTITY_API_URL + "/{id}";
 
@@ -69,7 +63,7 @@ class EmprestimoResourceIT {
      * if they test an entity which requires the current entity.
      */
     public static Emprestimo createEntity(EntityManager em) {
-        Emprestimo emprestimo = new Emprestimo().date(DEFAULT_DATE).username(DEFAULT_USERNAME).title(DEFAULT_TITLE);
+        Emprestimo emprestimo = new Emprestimo().date(DEFAULT_DATE);
         return emprestimo;
     }
 
@@ -80,7 +74,7 @@ class EmprestimoResourceIT {
      * if they test an entity which requires the current entity.
      */
     public static Emprestimo createUpdatedEntity(EntityManager em) {
-        Emprestimo emprestimo = new Emprestimo().date(UPDATED_DATE).username(UPDATED_USERNAME).title(UPDATED_TITLE);
+        Emprestimo emprestimo = new Emprestimo().date(UPDATED_DATE);
         return emprestimo;
     }
 
@@ -101,9 +95,7 @@ class EmprestimoResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(emprestimo.getId().intValue())))
-            .andExpect(jsonPath("$.[*].date").value(hasItem(DEFAULT_DATE.toString())))
-            .andExpect(jsonPath("$.[*].username").value(hasItem(DEFAULT_USERNAME)))
-            .andExpect(jsonPath("$.[*].title").value(hasItem(DEFAULT_TITLE)));
+            .andExpect(jsonPath("$.[*].date").value(hasItem(DEFAULT_DATE.toString())));
     }
 
     @Test
@@ -118,9 +110,7 @@ class EmprestimoResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(emprestimo.getId().intValue()))
-            .andExpect(jsonPath("$.date").value(DEFAULT_DATE.toString()))
-            .andExpect(jsonPath("$.username").value(DEFAULT_USERNAME))
-            .andExpect(jsonPath("$.title").value(DEFAULT_TITLE));
+            .andExpect(jsonPath("$.date").value(DEFAULT_DATE.toString()));
     }
 
     @Test

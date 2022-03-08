@@ -19,9 +19,6 @@
           <tr>
             <th scope="row"><span v-text="$t('global.field.id')">ID</span></th>
             <th scope="row"><span v-text="$t('emprestaiApp.emprestimo.date')">Date</span></th>
-            <th scope="row"><span v-text="$t('emprestaiApp.emprestimo.username')">Username</span></th>
-            <th scope="row"><span v-text="$t('emprestaiApp.emprestimo.title')">Title</span></th>
-            <th scope="row"><span v-text="$t('emprestaiApp.emprestimo.receiver')">Receiver</span></th>
             <th scope="row"><span v-text="$t('emprestaiApp.emprestimo.book')">Book</span></th>
             <th scope="row"></th>
           </tr>
@@ -32,18 +29,9 @@
               <router-link :to="{ name: 'EmprestimoView', params: { emprestimoId: emprestimo.id } }">{{ emprestimo.id }}</router-link>
             </td>
             <td>{{ emprestimo.date }}</td>
-            <td>{{ emprestimo.username }}</td>
-            <td>{{ emprestimo.title }}</td>
-            <td>
-              <div v-if="emprestimo.receiver">
-                <router-link :to="{ name: 'UsuarioView', params: { UsuarioId: emprestimo.receiver.id } }">{{
-                  emprestimo.receiver.username
-                }}</router-link>
-              </div>
-            </td>
             <td>
               <div v-if="emprestimo.book">
-                <router-link :to="{ name: 'BookView', params: { BookId: emprestimo.book.id } }">{{ emprestimo.book.id }}</router-link>
+                <router-link :to="{ name: 'BookView', params: { BookId: emprestimo.book.id } }">{{ emprestimo.book.title }}</router-link>
               </div>
             </td>
             <td class="text-right">

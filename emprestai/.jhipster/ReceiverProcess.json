@@ -3,17 +3,16 @@
     {
       "fieldName": "date",
       "fieldType": "LocalDate"
-    },
-    {
-      "fieldName": "username",
-      "fieldType": "String"
-    },
-    {
-      "fieldName": "title",
-      "fieldType": "String"
     }
   ],
-  "relationships": [],
+  "relationships": [
+    {
+      "relationshipName": "book",
+      "relationshipType": "many-to-one",
+      "otherEntityName": "Book",
+      "otherEntityField": "title"
+    }
+  ],
   "entityType": "process-binding",
   "processBpmnId": "ReceiverProcess",
   "domainEntityName": "Emprestimo",
@@ -23,6 +22,6 @@
   "readOnly": false,
   "pagination": "no",
   "name": "ReceiverProcess",
-  "changelogDate": "20210401000002",
+  "changelogDate": "20220401000001",
   "skipFakeData": true
 }

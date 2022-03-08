@@ -9,16 +9,30 @@
           <template v-slot:body>
             <hr />
             <div class="form-group">
-              <label class="form-control-label" v-text="$t('emprestaiApp.selecionarLivro.title')">title</label>
+              <label class="form-control-label" v-text="$t('emprestaiApp.selecionarLivro.date')">date</label>
               <input
                 readonly
                 type="text"
                 class="form-control"
-                name="title"
-                id="emprestimo-title"
-                data-cy="title"
-                v-model="taskContext.receiverProcess.emprestimo.title"
+                name="date"
+                id="emprestimo-date"
+                data-cy="date"
+                v-model="taskContext.receiverProcess.emprestimo.date"
               />
+            </div>
+            <div class="form-group">
+              <label class="form-control-label" v-text="$t('emprestaiApp.selecionarLivro.book')" for="selecionar-livro-book">Book</label>
+              <input
+                v-if="taskContext.receiverProcess.emprestimo.book"
+                readonly
+                type="text"
+                class="form-control"
+                name="book"
+                id="emprestimo-book"
+                data-cy="book"
+                :value="taskContext.receiverProcess.emprestimo.book.title"
+              />
+              <input v-else readonly type="text" class="form-control" name="book" id="emprestimo-book" data-cy="book" value="" />
             </div>
           </template>
         </akip-show-task-instance>

@@ -14,8 +14,6 @@ public class BookDTO implements Serializable {
 
     private String author;
 
-    private UsuarioDTO owner;
-
     public Long getId() {
         return id;
     }
@@ -38,14 +36,6 @@ public class BookDTO implements Serializable {
 
     public void setAuthor(String author) {
         this.author = author;
-    }
-
-    public UsuarioDTO getOwner() {
-        return owner;
-    }
-
-    public void setOwner(UsuarioDTO owner) {
-        this.owner = owner;
     }
 
     @Override
@@ -76,7 +66,6 @@ public class BookDTO implements Serializable {
             "id=" + getId() +
             ", title='" + getTitle() + "'" +
             ", author='" + getAuthor() + "'" +
-            ", owner=" + getOwner() +
             "}";
     }
 }
