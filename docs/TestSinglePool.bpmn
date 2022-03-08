@@ -36,6 +36,7 @@
       </bpmn:lane>
     </bpmn:laneSet>
     <bpmn:userTask id="Activity_01lflvn" name="Aceitar pedido">
+      <bpmn:documentation># Task do Dono do Livro</bpmn:documentation>
       <bpmn:incoming>Flow_0iufafy</bpmn:incoming>
       <bpmn:outgoing>Flow_18h9dk7</bpmn:outgoing>
     </bpmn:userTask>
@@ -61,6 +62,9 @@ Escolha um livro para pegar emprestado!</bpmn:documentation>
       <bpmn:outgoing>Flow_1szzwx2</bpmn:outgoing>
     </bpmn:startEvent>
     <bpmn:userTask id="Activity_19i7h7r" name="Pegar Livro">
+      <bpmn:documentation># Pegar Livro
+
+Você já pode ir buscar o livro no local indicado.</bpmn:documentation>
       <bpmn:incoming>Flow_13k5mli</bpmn:incoming>
       <bpmn:outgoing>Flow_13tyiz2</bpmn:outgoing>
     </bpmn:userTask>
@@ -69,6 +73,7 @@ Escolha um livro para pegar emprestado!</bpmn:documentation>
       <bpmn:outgoing>Flow_1hs0sbp</bpmn:outgoing>
     </bpmn:serviceTask>
     <bpmn:userTask id="LerLivro" name="Ler Livro">
+      <bpmn:documentation># Ler Livro</bpmn:documentation>
       <bpmn:incoming>Flow_13tyiz2</bpmn:incoming>
       <bpmn:outgoing>Flow_02k5hlu</bpmn:outgoing>
     </bpmn:userTask>
@@ -78,6 +83,9 @@ Escolha um livro para pegar emprestado!</bpmn:documentation>
       <bpmn:outgoing>Flow_1pewdm5</bpmn:outgoing>
     </bpmn:exclusiveGateway>
     <bpmn:userTask id="DevolverLivro" name="Devolver Livro">
+      <bpmn:documentation># Devolver Livro
+
+Devolva o livro no local de coleta.</bpmn:documentation>
       <bpmn:incoming>Flow_1pewdm5</bpmn:incoming>
       <bpmn:outgoing>Flow_15z5vyc</bpmn:outgoing>
     </bpmn:userTask>
@@ -86,6 +94,7 @@ Escolha um livro para pegar emprestado!</bpmn:documentation>
       <bpmn:outgoing>Flow_0bygken</bpmn:outgoing>
     </bpmn:sendTask>
     <bpmn:userTask id="Activity_1kzh2xg" name="Pegar livro de volta">
+      <bpmn:documentation># Task do Dono do Livro</bpmn:documentation>
       <bpmn:incoming>Flow_0bygken</bpmn:incoming>
       <bpmn:outgoing>Flow_1cbg6hj</bpmn:outgoing>
     </bpmn:userTask>
@@ -124,70 +133,70 @@ Escolha um livro para pegar emprestado!</bpmn:documentation>
       <bpmndi:BPMNShape id="Participant_1aqruji_di" bpmnElement="Participant_1aqruji" isHorizontal="true">
         <dc:Bounds x="160" y="59" width="1380" height="460" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Lane_041za8s_di" bpmnElement="Lane_041za8s" isHorizontal="true">
-        <dc:Bounds x="190" y="59" width="1350" height="230" />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Lane_0mw7buw_di" bpmnElement="Lane_0mw7buw" isHorizontal="true">
         <dc:Bounds x="190" y="289" width="1350" height="230" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge id="Flow_1szzwx2_di" bpmnElement="Flow_1szzwx2">
-        <di:waypoint x="248" y="120" />
-        <di:waypoint x="330" y="120" />
+      <bpmndi:BPMNShape id="Lane_041za8s_di" bpmnElement="Lane_041za8s" isHorizontal="true">
+        <dc:Bounds x="190" y="59" width="1350" height="230" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_15z5vyc_di" bpmnElement="Flow_15z5vyc">
+        <di:waypoint x="1270" y="120" />
+        <di:waypoint x="1330" y="120" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_1ogjhuh_di" bpmnElement="Flow_1ogjhuh">
-        <di:waypoint x="430" y="120" />
-        <di:waypoint x="480" y="120" />
+      <bpmndi:BPMNEdge id="Flow_1cbg6hj_di" bpmnElement="Flow_1cbg6hj">
+        <di:waypoint x="1430" y="380" />
+        <di:waypoint x="1482" y="380" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_0iufafy_di" bpmnElement="Flow_0iufafy">
-        <di:waypoint x="530" y="160" />
-        <di:waypoint x="530" y="340" />
+      <bpmndi:BPMNEdge id="Flow_0bygken_di" bpmnElement="Flow_0bygken">
+        <di:waypoint x="1380" y="160" />
+        <di:waypoint x="1380" y="340" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_18h9dk7_di" bpmnElement="Flow_18h9dk7">
-        <di:waypoint x="580" y="380" />
-        <di:waypoint x="630" y="380" />
+      <bpmndi:BPMNEdge id="Flow_1pewdm5_di" bpmnElement="Flow_1pewdm5">
+        <di:waypoint x="1105" y="120" />
+        <di:waypoint x="1170" y="120" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_13k5mli_di" bpmnElement="Flow_13k5mli">
-        <di:waypoint x="680" y="340" />
-        <di:waypoint x="680" y="160" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_13tyiz2_di" bpmnElement="Flow_13tyiz2">
-        <di:waypoint x="740" y="120" />
-        <di:waypoint x="792" y="120" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_1efiaep_di" bpmnElement="Flow_1efiaep">
-        <di:waypoint x="560" y="438" />
-        <di:waypoint x="560" y="480" />
-        <di:waypoint x="662" y="480" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_1mfcicr_di" bpmnElement="Flow_1mfcicr">
-        <di:waypoint x="872" y="178" />
-        <di:waypoint x="872" y="240" />
-        <di:waypoint x="950" y="240" />
+      <bpmndi:BPMNEdge id="Flow_02k5hlu_di" bpmnElement="Flow_02k5hlu">
+        <di:waypoint x="892" y="120" />
+        <di:waypoint x="1055" y="120" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1hs0sbp_di" bpmnElement="Flow_1hs0sbp">
         <di:waypoint x="1050" y="240" />
         <di:waypoint x="1080" y="240" />
         <di:waypoint x="1080" y="145" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_02k5hlu_di" bpmnElement="Flow_02k5hlu">
-        <di:waypoint x="892" y="120" />
-        <di:waypoint x="1055" y="120" />
+      <bpmndi:BPMNEdge id="Flow_1mfcicr_di" bpmnElement="Flow_1mfcicr">
+        <di:waypoint x="872" y="178" />
+        <di:waypoint x="872" y="240" />
+        <di:waypoint x="950" y="240" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_1pewdm5_di" bpmnElement="Flow_1pewdm5">
-        <di:waypoint x="1105" y="120" />
-        <di:waypoint x="1170" y="120" />
+      <bpmndi:BPMNEdge id="Flow_1efiaep_di" bpmnElement="Flow_1efiaep">
+        <di:waypoint x="560" y="438" />
+        <di:waypoint x="560" y="480" />
+        <di:waypoint x="662" y="480" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_0bygken_di" bpmnElement="Flow_0bygken">
-        <di:waypoint x="1380" y="160" />
-        <di:waypoint x="1380" y="340" />
+      <bpmndi:BPMNEdge id="Flow_13tyiz2_di" bpmnElement="Flow_13tyiz2">
+        <di:waypoint x="740" y="120" />
+        <di:waypoint x="792" y="120" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_1cbg6hj_di" bpmnElement="Flow_1cbg6hj">
-        <di:waypoint x="1430" y="380" />
-        <di:waypoint x="1482" y="380" />
+      <bpmndi:BPMNEdge id="Flow_13k5mli_di" bpmnElement="Flow_13k5mli">
+        <di:waypoint x="680" y="340" />
+        <di:waypoint x="680" y="160" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_15z5vyc_di" bpmnElement="Flow_15z5vyc">
-        <di:waypoint x="1270" y="120" />
-        <di:waypoint x="1330" y="120" />
+      <bpmndi:BPMNEdge id="Flow_18h9dk7_di" bpmnElement="Flow_18h9dk7">
+        <di:waypoint x="580" y="380" />
+        <di:waypoint x="630" y="380" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0iufafy_di" bpmnElement="Flow_0iufafy">
+        <di:waypoint x="530" y="160" />
+        <di:waypoint x="530" y="340" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1ogjhuh_di" bpmnElement="Flow_1ogjhuh">
+        <di:waypoint x="430" y="120" />
+        <di:waypoint x="480" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1szzwx2_di" bpmnElement="Flow_1szzwx2">
+        <di:waypoint x="248" y="120" />
+        <di:waypoint x="330" y="120" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="Activity_01lflvn_di" bpmnElement="Activity_01lflvn">
         <dc:Bounds x="480" y="340" width="100" height="80" />
@@ -231,11 +240,11 @@ Escolha um livro para pegar emprestado!</bpmn:documentation>
       <bpmndi:BPMNShape id="Event_0v84s2y_di" bpmnElement="Event_0v84s2y">
         <dc:Bounds x="1482" y="362" width="36" height="36" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_0ftvs7b_di" bpmnElement="Event_0ftvs7b">
-        <dc:Bounds x="542" y="402" width="36" height="36" />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_1qsj0pe_di" bpmnElement="Event_1qsj0pe">
         <dc:Bounds x="854" y="142" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0ftvs7b_di" bpmnElement="Event_0ftvs7b">
+        <dc:Bounds x="542" y="402" width="36" height="36" />
       </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
